@@ -20,13 +20,6 @@
         Color="{StaticResource col_ter}" />
 
     <FontImageSource
-        x:Key="icon_point_solid"
-        FontFamily="CustomFontIcons"
-        Glyph="{x:Static FontIcons:CustomFontIcons.icon_point_solid}"
-        Size="5"
-        Color="#FFF10C" />
-
-    <FontImageSource
         x:Key="icon_degree_symbol_outline"
         FontFamily="CustomFontIcons"
         Glyph="{x:Static FontIcons:CustomFontIcons.icon_degree_symbol_outline}"
@@ -37,7 +30,7 @@
         x:Key="icon_wind_outline"
         FontFamily="CustomFontIcons"
         Glyph="{x:Static FontIcons:CustomFontIcons.icon_wind_outline}"
-        Size="24.4"
+        Size="32.9"
         Color="{StaticResource col_ter}" />
 
     <FontImageSource
