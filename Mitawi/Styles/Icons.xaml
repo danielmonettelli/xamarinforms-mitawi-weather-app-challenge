@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:FontIcons="clr-namespace:Mitawi.CodeFontIcons;assembly=Mitawi">
+
+    <!--#region FontImageSource INTERFACES-->
+    <FontImageSource
+        x:Key="icon_picker_solid"
+        FontFamily="CustomFontIcons"
+        Glyph="{x:Static FontIcons:CustomFontIcons.icon_picker_solid}"
+        Size="24"
+        Color="{StaticResource col_ter}" />
+
+    <FontImageSource
+        x:Key="icon_location_solid"
+        FontFamily="CustomFontIcons"
+        Glyph="{x:Static FontIcons:CustomFontIcons.icon_location_solid}"
+        Size="18"
+        Color="{StaticResource col_ter}" />
+
+    <FontImageSource
+        x:Key="icon_point_solid"
+        FontFamily="CustomFontIcons"
+        Glyph="{x:Static FontIcons:CustomFontIcons.icon_point_solid}"
+        Size="5"
+        Color="#FFF10C" />
+
+    <FontImageSource
+        x:Key="icon_degree_symbol_outline"
+        FontFamily="CustomFontIcons"
+        Glyph="{x:Static FontIcons:CustomFontIcons.icon_degree_symbol_outline}"
+        Size="15"
+        Color="#87B3F5" />
+
+    <FontImageSource
+        x:Key="icon_wind_outline"
+        FontFamily="CustomFontIcons"
+        Glyph="{x:Static FontIcons:CustomFontIcons.icon_wind_outline}"
+        Size="24.4"
+        Color="{StaticResource col_ter}" />
+
+    <FontImageSource
+        x:Key="icon_arrow_forward_outline"
+        FontFamily="CustomFontIcons"
+        Glyph="{x:Static FontIcons:CustomFontIcons.icon_arrow_forward_outline}"
+        Size="12"
+        Color="{StaticResource col_sext}" />
+
+    <FontImageSource
+        x:Key="icon_calendar_outline"
+        FontFamily="CustomFontIcons"
+        Glyph="{x:Static FontIcons:CustomFontIcons.icon_calendar_outline}"
+        Size="19.5"
+        Color="{StaticResource col_ter}" />
+    <!--#endregion-->
+
+</ResourceDictionary>

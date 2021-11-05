@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!--#region SPACES BASE-->
+    <Style TargetType="Grid">
+        <Setter Property="RowSpacing" Value="0" />
+        <Setter Property="ColumnSpacing" Value="0" />
+    </Style>
+
+    <Style TargetType="StackLayout">
+        <Setter Property="Spacing" Value="0" />
+    </Style>
+
+    <Style TargetType="Frame">
+        <Setter Property="Padding" Value="0" />
+    </Style>
+    <!--#endregion-->
+
+    <!--#region LABELS BASE-->
+    <Style TargetType="Label">
+        <Setter Property="LineBreakMode" Value="TailTruncation" />
+    </Style>
+    <!--#endregion-->
+
+</ResourceDictionary>
