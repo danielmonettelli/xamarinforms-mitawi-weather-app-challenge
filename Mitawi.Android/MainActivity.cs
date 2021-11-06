@@ -16,6 +16,13 @@ namespace Mitawi.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            // FFImageLoading SECTOR in Android
+            // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
+            FFImageLoading.Forms.Platform.CachedImageRenderer.InitImageViewHandler();
+            // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

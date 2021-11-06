@@ -23,6 +23,13 @@ namespace Mitawi.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            // FFImageLoading SECTOR in iOS
+            // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.InitImageSourceHandler();
+            // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
