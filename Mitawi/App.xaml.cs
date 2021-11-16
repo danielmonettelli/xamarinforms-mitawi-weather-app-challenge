@@ -2,6 +2,8 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using Mitawi.Views;
+
 namespace Mitawi
 {
     public partial class App : Application
@@ -10,7 +12,7 @@ namespace Mitawi
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new HomePage();
         }
 
         protected override void OnStart()

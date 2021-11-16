@@ -30,7 +30,7 @@
         x:Key="icon_wind_outline"
         FontFamily="CustomFontIcons"
         Glyph="{x:Static FontIcons:CustomFontIcons.icon_wind_outline}"
-        Size="32.9"
+        Size="22"
         Color="{StaticResource col_ter}" />
 
     <FontImageSource

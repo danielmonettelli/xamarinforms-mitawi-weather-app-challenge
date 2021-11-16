@@ -11,7 +11,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\FontFamily\Roboto-Bold.ttf" />
+    <None Remove="Resources\FontFamily\Roboto-Medium.ttf" />
+    <None Remove="Resources\FontFamily\Roboto-Regular.ttf" />
     <None Remove="Resources\Fonticons\customfonticons.ttf" />
+    <None Remove="Resources\Images\12.png" />
     <None Remove="Resources\SVGs\svg_chance_of_rain_mix.svg" />
     <None Remove="Resources\SVGs\svg_circle_arrow_backward_outline.svg" />
     <None Remove="Resources\SVGs\svg_humidity_solid.svg" />
@@ -19,7 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\FontFamily\Roboto-Bold.ttf" />
+    <EmbeddedResource Include="Resources\FontFamily\Roboto-Medium.ttf" />
+    <EmbeddedResource Include="Resources\FontFamily\Roboto-Regular.ttf" />
     <EmbeddedResource Include="Resources\Fonticons\customfonticons.ttf" />
+    <EmbeddedResource Include="Resources\Images\12.png" />
     <EmbeddedResource Include="Resources\SVGs\svg_chance_of_rain_mix.svg" />
     <EmbeddedResource Include="Resources\SVGs\svg_circle_arrow_backward_outline.svg" />
     <EmbeddedResource Include="Resources\SVGs\svg_humidity_solid.svg" />
@@ -27,9 +35,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="System.Text.Json" Version="6.0.0" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.3.0" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Styles.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

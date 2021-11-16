@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Mitawi.Views.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:Mitawi.Converters"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    BackgroundColor="{StaticResource col_fourt}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary Source="Styles.xaml" />
+        <converter:UnixTimeToDateTimeConverter x:Key="UnixTimeToDateTime" />
+        <converter:StringToImageConverter x:Key="StringToImage" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid
+            Padding="16,0,16,8"
+            RowDefinitions="97.5*,2.5*,6,Auto,16,Auto">
+
+            <yummy:PancakeView
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                BackgroundColor="{StaticResource col_thirt}"
+                CornerRadius="0,0,43,43"
+                Shadow="{yummy:ShadowMarkup Color={StaticResource col_thirt},
+                                            Opacity=0.93,
+                                            BlurRadius=45}" />
+
+            <yummy:PancakeView
+                Grid.Row="0"
+                Margin="-16,0"
+                BackgroundGradientEndPoint="0,1"
+                BackgroundGradientStartPoint="0,0"
+                Border="{yummy:BorderMarkup Color={StaticResource col_twel},
+                                            Thickness=3}"
+                CornerRadius="0,0,45,45">
+                <yummy:PancakeView.BackgroundGradientStops>
+                    <yummy:GradientStopCollection>
+                        <yummy:GradientStop
+                            Offset="0"
+                            Color="{StaticResource col_prim}" />
+                        <yummy:GradientStop
+                            Offset="0.5"
+                            Color="{StaticResource col_sec}" />
+                    </yummy:GradientStopCollection>
+                </yummy:PancakeView.BackgroundGradientStops>
+
+                <Grid
+                    Padding="16,0"
+                    ColumnDefinitions="48,*,48"
+                    RowDefinitions="48, Auto, 4, *, Auto, 14, 2, 14, Auto">
+
+                    <!--#region Top icons-->
+                    <StackLayout
+                        Grid.Row="0"
+                        Grid.Column="0">
+                        <ffimageloadingsvg:SvgCachedImage
+                            HeightRequest="40"
+                            HorizontalOptions="Center"
+                            Source="resource://Mitawi.Resources.SVGs.svg_main_list_outline.svg"
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="40" />
+                    </StackLayout>
+
+                    <StackLayout
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        HorizontalOptions="CenterAndExpand"
+                        Orientation="Horizontal"
+                        Spacing="6"
+                        VerticalOptions="CenterAndExpand">
+                        <Image Source="{StaticResource icon_location_solid}" />
+                        <Label
+                            Style="{StaticResource TxtHeadline5_1}"
+                            Text="Minsk" />
+                    </StackLayout>
+
+                    <StackLayout
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Orientation="Horizontal">
+                        <Image
+                            HorizontalOptions="CenterAndExpand"
+                            Source="{StaticResource icon_picker_solid}"
+                            VerticalOptions="Center" />
+                    </StackLayout>
+                    <!--#endregion-->
+
+                    <!--#region Updating-->
+                    <yummy:PancakeView
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="0,-2,0,0"
+                        BackgroundColor="Transparent"
+                        Border="{yummy:BorderMarkup Color={StaticResource col_ten},
+                                                    Thickness=2}"
+                        CornerRadius="15,15,15,15"
+                        HeightRequest="29"
+                        HorizontalOptions="CenterAndExpand"
+                        WidthRequest="87">
+                        <StackLayout
+                            HorizontalOptions="CenterAndExpand"
+                            Orientation="Horizontal"
+                            Spacing="5">
+                            <BoxView
+                                BackgroundColor="#FFF10C"
+                                CornerRadius="2.5"
+                                HeightRequest="5"
+                                VerticalOptions="Center"
+                                WidthRequest="5" />
+                            <Label
+                                Style="{StaticResource TxtCaption_1}"
+                                Text="Updating"
+                                VerticalTextAlignment="Center" />
+                        </StackLayout>
+                    </yummy:PancakeView>
+                    <!--#endregion-->
+
+                    <!--#region Image-->
+                    <ffimageloading:CachedImage
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Source="{xct:ImageResource Id=Mitawi.Resources.Images.12.png}" />
+                    <!--#endregion-->
+
+                    <!--#region Basic description of the climate-->
+                    <StackLayout
+                        Grid.Row="4"
+                        Grid.Column="1">
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Style="{StaticResource TxtUnknown1_1}"
+                            Text="21°" />
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Style="{StaticResource TxtHeadline6_1}"
+                            Text="Thunderstorn" />
+                        <Label
+                            Margin="0,1,0,0"
+                            HorizontalTextAlignment="Center"
+                            Style="{StaticResource TxtSubtitle2_1}"
+                            Text="Monday, 17 May" />
+                    </StackLayout>
+                    <!--#endregion-->
+
+                    <!--#region Dividing line-->
+                    <BoxView
+                        Grid.Row="6"
+                        Grid.ColumnSpan="3"
+                        BackgroundColor="{StaticResource co_elev}" />
+                    <!--#endregion-->
+
+                    <!--#region Complex description of the climate-->
+                    <Grid
+                        Grid.Row="8"
+                        Grid.ColumnSpan="3"
+                        Padding="4,0,4,12"
+                        ColumnDefinitions="*, Auto, *"
+                        ColumnSpacing="10">
+
+                        <StackLayout Grid.Column="0">
+                            <Image Source="{StaticResource icon_wind_outline}" />
+                            <Label
+                                Margin="0,8,0,0"
+                                HorizontalTextAlignment="Center"
+                                Style="{StaticResource TxtSubtitle2_2}"
+                                Text="13 km/h" />
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Style="{StaticResource TxtBody2_1}"
+                                Text="Wind" />
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="1">
+                            <ffimageloadingsvg:SvgCachedImage
+                                HeightRequest="22"
+                                Source="resource://Mitawi.Resources.SVGs.svg_humidity_solid.svg" />
+                            <Label
+                                Margin="0,8,0,0"
+                                HorizontalTextAlignment="Center"
+                                Style="{StaticResource TxtSubtitle2_2}"
+                                Text="24%" />
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Style="{StaticResource TxtBody2_1}"
+                                Text="Humidity" />
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="2">
+                            <ffimageloadingsvg:SvgCachedImage
+                                HeightRequest="22"
+                                Source="resource://Mitawi.Resources.SVGs.svg_chance_of_rain_mix.svg" />
+                            <Label
+                                Margin="0,8,0,0"
+                                HorizontalTextAlignment="Center"
+                                Style="{StaticResource TxtSubtitle2_2}"
+                                Text="87%" />
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Style="{StaticResource TxtBody2_1}"
+                                Text="Chance of rain" />
+                        </StackLayout>
+                    </Grid>
+                    <!--#endregion-->
+                </Grid>
+            </yummy:PancakeView>
+
+            <StackLayout
+                Grid.Row="3"
+                Orientation="Horizontal"
+                Spacing="6">
+                <Label
+                    Style="{StaticResource TxtHeadline6_2}"
+                    Text="Today"
+                    VerticalTextAlignment="Center" />
+                <Label
+                    HorizontalOptions="EndAndExpand"
+                    Style="{StaticResource TxtSubtitle1_1}"
+                    Text="7 days"
+                    VerticalTextAlignment="Center" />
+                <Image
+                    HorizontalOptions="End"
+                    Source="{StaticResource icon_arrow_forward_outline}" />
+            </StackLayout>
+
+            <ScrollView
+                Grid.Row="5"
+                Margin="-16,0"
+                Padding="16,0"
+                HeightRequest="110"
+                Orientation="Horizontal">
+                <StackLayout
+                    BindableLayout.ItemsSource="{Binding Hourly}"
+                    Orientation="Horizontal"
+                    Spacing="16">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <yummy:PancakeView
+                                Padding="0,10"
+                                BackgroundColor="Transparent"
+                                Border="{yummy:BorderMarkup Color={StaticResource col_oct},
+                                                            Thickness=3}"
+                                CornerRadius="30,30,30,30"
+                                WidthRequest="80">
+                                <StackLayout Spacing="2">
+                                    <Label
+                                        HorizontalTextAlignment="Center"
+                                        Style="{StaticResource TxtHeadline6_2}"
+                                        Text="{Binding Temp, StringFormat='{0:N0}°'}" />
+
+                                    <ffimageloading:CachedImage
+                                        Aspect="AspectFill"
+                                        HeightRequest="42"
+                                        Source="{Binding Weather[0].Icon, Converter={StaticResource StringToImage}}" />
+                                    <Label
+                                        HorizontalTextAlignment="Center"
+                                        Style="{StaticResource TxtBody2_2}"
+                                        Text="{Binding Dt, Converter={StaticResource UnixTimeToDateTime}, StringFormat='{0:HH:mm}'}"
+                                        VerticalOptions="EndAndExpand" />
+                                </StackLayout>
+                            </yummy:PancakeView>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
