@@ -1,5 +1,4 @@
-﻿using MvvmHelpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
@@ -24,11 +23,6 @@ namespace Mitawi.Models
 
         [JsonPropertyName("daily")]
         public List<Daily> Daily { get; set; }
-
-        public static implicit operator ObservableRangeCollection<object>(WeatherData v)
-        {
-            throw new NotImplementedException();
-        }
     }
 
     public class Weather
@@ -88,7 +82,7 @@ namespace Mitawi.Models
         public List<Weather> Weather { get; set; }
 
         [JsonPropertyName("pop")]
-        public int Pop { get; set; }
+        public double Pop { get; set; }
     }
 
     public class Temp
