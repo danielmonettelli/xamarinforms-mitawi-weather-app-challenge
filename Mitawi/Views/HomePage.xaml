@@ -6,8 +6,11 @@
     xmlns:converter="clr-namespace:Mitawi.Converters"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:models="clr-namespace:Mitawi.Models"
+    xmlns:viewmodels="clr-namespace:Mitawi.ViewModels"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:DataType="viewmodels:HomeViewModel"
     BackgroundColor="{StaticResource col_fourt}">
 
     <ContentPage.Resources>
@@ -80,7 +83,7 @@
                         <Image Source="{StaticResource icon_location_solid}" />
                         <Label
                             Style="{StaticResource TxtHeadline5_1}"
-                            Text="Minsk" />
+                            Text="South Korea" />
                     </StackLayout>
 
                     <StackLayout
@@ -138,16 +141,16 @@
                         <Label
                             HorizontalTextAlignment="Center"
                             Style="{StaticResource TxtUnknown1_1}"
-                            Text="21°" />
+                            Text="6°" />
                         <Label
                             HorizontalTextAlignment="Center"
                             Style="{StaticResource TxtHeadline6_1}"
-                            Text="Thunderstorn" />
+                            Text="Seoul" />
                         <Label
                             Margin="0,1,0,0"
                             HorizontalTextAlignment="Center"
                             Style="{StaticResource TxtSubtitle2_1}"
-                            Text="Monday, 17 May" />
+                            Text="Saturday, 20 November" />
                     </StackLayout>
                     <!--#endregion-->
 
@@ -172,7 +175,7 @@
                                 Margin="0,8,0,0"
                                 HorizontalTextAlignment="Center"
                                 Style="{StaticResource TxtSubtitle2_2}"
-                                Text="13 km/h" />
+                                Text="2 km/h" />
                             <Label
                                 HorizontalTextAlignment="Center"
                                 Style="{StaticResource TxtBody2_1}"
@@ -187,7 +190,7 @@
                                 Margin="0,8,0,0"
                                 HorizontalTextAlignment="Center"
                                 Style="{StaticResource TxtSubtitle2_2}"
-                                Text="24%" />
+                                Text="93%" />
                             <Label
                                 HorizontalTextAlignment="Center"
                                 Style="{StaticResource TxtBody2_1}"
@@ -202,7 +205,7 @@
                                 Margin="0,8,0,0"
                                 HorizontalTextAlignment="Center"
                                 Style="{StaticResource TxtSubtitle2_2}"
-                                Text="87%" />
+                                Text="4%" />
                             <Label
                                 HorizontalTextAlignment="Center"
                                 Style="{StaticResource TxtBody2_1}"
@@ -246,7 +249,7 @@
                     Orientation="Horizontal"
                     Spacing="16">
                     <BindableLayout.ItemTemplate>
-                        <DataTemplate>
+                        <DataTemplate x:DataType="models:Hourly">
                             <yummy:PancakeView
                                 Padding="0,10"
                                 BackgroundColor="Transparent"
@@ -269,7 +272,7 @@
                                         Source="{Binding Weather[0].Icon, Converter={StaticResource StringToImage}}" />
                                     <!--#endregion-->
 
-                                    <!--#region Small weather icon-->
+                                    <!--#region Time per hour-->
                                     <Label
                                         HorizontalTextAlignment="Center"
                                         Style="{StaticResource TxtBody2_2}"
