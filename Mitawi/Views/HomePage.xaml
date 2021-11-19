@@ -242,7 +242,7 @@
                 HeightRequest="110"
                 Orientation="Horizontal">
                 <StackLayout
-                    BindableLayout.ItemsSource="{Binding Hourly}"
+                    BindableLayout.ItemsSource="{Binding WeatherData.Hourly}"
                     Orientation="Horizontal"
                     Spacing="16">
                     <BindableLayout.ItemTemplate>
