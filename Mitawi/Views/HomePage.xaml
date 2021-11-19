@@ -17,10 +17,12 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
+        <!--#region Grid Parent-->
         <Grid
             Padding="16,0,16,8"
             RowDefinitions="97.5*,2.5*,6,Auto,16,Auto">
 
+            <!--#region Top layer lower 1-->
             <yummy:PancakeView
                 Grid.Row="0"
                 Grid.RowSpan="2"
@@ -29,7 +31,9 @@
                 Shadow="{yummy:ShadowMarkup Color={StaticResource col_thirt},
                                             Opacity=0.93,
                                             BlurRadius=45}" />
+            <!--#endregion-->
 
+            <!--#region Top layer higher 2-->
             <yummy:PancakeView
                 Grid.Row="0"
                 Margin="-16,0"
@@ -208,7 +212,9 @@
                     <!--#endregion-->
                 </Grid>
             </yummy:PancakeView>
+            <!--#endregion-->
 
+            <!--#region Today and 7 days titles-->
             <StackLayout
                 Grid.Row="3"
                 Orientation="Horizontal"
@@ -226,7 +232,9 @@
                     HorizontalOptions="End"
                     Source="{StaticResource icon_arrow_forward_outline}" />
             </StackLayout>
+            <!--#endregion-->
 
+            <!--#region [Item Collections] of weather within 24 hours a day-->
             <ScrollView
                 Grid.Row="5"
                 Margin="-16,0"
@@ -247,26 +255,35 @@
                                 CornerRadius="30,30,30,30"
                                 WidthRequest="80">
                                 <StackLayout Spacing="2">
+                                    <!--#region Temperature in degrees celsius-->
                                     <Label
                                         HorizontalTextAlignment="Center"
                                         Style="{StaticResource TxtHeadline6_2}"
                                         Text="{Binding Temp, StringFormat='{0:N0}°'}" />
+                                    <!--#endregion-->
 
+                                    <!--#region Small weather icon-->
                                     <ffimageloading:CachedImage
                                         Aspect="AspectFill"
                                         HeightRequest="42"
                                         Source="{Binding Weather[0].Icon, Converter={StaticResource StringToImage}}" />
+                                    <!--#endregion-->
+
+                                    <!--#region Small weather icon-->
                                     <Label
                                         HorizontalTextAlignment="Center"
                                         Style="{StaticResource TxtBody2_2}"
                                         Text="{Binding Dt, Converter={StaticResource UnixTimeToDateTime}, StringFormat='{0:HH:mm}'}"
                                         VerticalOptions="EndAndExpand" />
+                                    <!--#endregion-->
                                 </StackLayout>
                             </yummy:PancakeView>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                 </StackLayout>
             </ScrollView>
+            <!--#endregion-->
         </Grid>
+        <!--#endregion-->
     </ContentPage.Content>
 </ContentPage>
