@@ -19,19 +19,13 @@ namespace Mitawi.Services
         public async Task<WeatherData> GetWeatherData(string query)
         {
             WeatherData weatherData = null;
-            try
-            {
+
                 HttpResponseMessage response = await _client.GetAsync(query);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     weatherData = JsonSerializer.Deserialize<WeatherData>(content);
                 }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("\t\tERROR {0}", ex.Message);
-            }
 
             return weatherData;
         }
