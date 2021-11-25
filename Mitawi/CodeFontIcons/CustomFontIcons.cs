@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Mitawi.CodeFontIcons
+﻿namespace Mitawi.CodeFontIcons
 {
     internal static class CustomFontIcons
     {

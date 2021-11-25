@@ -23,7 +23,7 @@
         <!--#region Grid Parent-->
         <Grid
             Padding="16,0,16,8"
-            RowDefinitions="97.5*,2.5*,6,Auto,16,Auto">
+            RowDefinitions="97.5*,2.5*,6,Auto,16,130">
 
             <!--#region Top layer lower 1-->
             <yummy:PancakeView
@@ -150,7 +150,7 @@
                             Margin="0,1,0,0"
                             HorizontalTextAlignment="Center"
                             Style="{StaticResource TxtSubtitle2_1}"
-                            Text="Saturday, 20 November" />
+                            Text="Wednesday, 24 November" />
                     </StackLayout>
                     <!--#endregion-->
 
@@ -242,7 +242,6 @@
                 Grid.Row="5"
                 Margin="-16,0"
                 Padding="16,0"
-                HeightRequest="110"
                 Orientation="Horizontal">
                 <StackLayout
                     BindableLayout.ItemsSource="{Binding WeatherData.Hourly}"
@@ -252,30 +251,35 @@
                         <DataTemplate x:DataType="models:Hourly">
                             <yummy:PancakeView
                                 Padding="0,10"
-                                BackgroundColor="Transparent"
-                                Border="{yummy:BorderMarkup Color={StaticResource col_oct},
-                                                            Thickness=3}"
-                                CornerRadius="30,30,30,30"
-                                WidthRequest="80">
+                                BackgroundGradientEndPoint="0,1"
+                                BackgroundGradientStartPoint="0,0"
+                                Style="{StaticResource vsm_surfaceHourly}"
+                                VerticalOptions="Center">
+                                <yummy:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectedWeather_Tapped" />
+                                </yummy:PancakeView.GestureRecognizers>
                                 <StackLayout Spacing="2">
                                     <!--#region Temperature in degrees celsius-->
                                     <Label
+                                        x:Name="labelTemperature"
                                         HorizontalTextAlignment="Center"
-                                        Style="{StaticResource TxtHeadline6_2}"
+                                        Style="{StaticResource vsm_labelTemperature}"
                                         Text="{Binding Temp, StringFormat='{0:N0}°'}" />
                                     <!--#endregion-->
 
                                     <!--#region Small weather icon-->
                                     <ffimageloading:CachedImage
+                                        x:Name="imageSmallWeather"
                                         Aspect="AspectFill"
-                                        HeightRequest="42"
-                                        Source="{Binding Weather[0].Icon, Converter={StaticResource StringToImage}}" />
+                                        Source="{Binding Weather[0].Icon, Converter={StaticResource StringToImage}}"
+                                        Style="{StaticResource vsm_imageSmallWeather}" />
                                     <!--#endregion-->
 
                                     <!--#region Time per hour-->
                                     <Label
+                                        x:Name="labelHour"
                                         HorizontalTextAlignment="Center"
-                                        Style="{StaticResource TxtBody2_2}"
+                                        Style="{StaticResource vsm_labelHour}"
                                         Text="{Binding Dt, Converter={StaticResource UnixTimeToDateTime}, StringFormat='{0:HH:mm}'}"
                                         VerticalOptions="EndAndExpand" />
                                     <!--#endregion-->

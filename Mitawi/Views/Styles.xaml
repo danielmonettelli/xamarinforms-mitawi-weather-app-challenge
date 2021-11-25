@@ -2,7 +2,9 @@
 <ResourceDictionary
     x:Class="Mitawi.Views.Styles"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
 
     <!--#region Headline1-->
 
@@ -196,4 +198,134 @@
     </Style>
     <!--#endregion-->
 
+    <!--#region Visual States Manager-->
+
+    <Style
+        x:Key="vsm_imageSmallWeather"
+        TargetType="ffimageloading:CachedImage">
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="HeightRequest" Value="42" />
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="HeightRequest" Value="50" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="vsm_labelTemperature"
+        TargetType="Label">
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="FontFamily" Value="Roboto#700" />
+                            <Setter Property="FontSize" Value="20" />
+                            <Setter Property="TextColor" Value="{StaticResource col_ter}" />
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="FontFamily" Value="Roboto#700" />
+                            <Setter Property="FontSize" Value="24" />
+                            <Setter Property="TextColor" Value="{StaticResource col_ter}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="vsm_labelHour"
+        TargetType="Label">
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="FontFamily" Value="Roboto#700" />
+                            <Setter Property="FontSize" Value="14" />
+                            <Setter Property="TextColor" Value="{StaticResource col_sext}" />
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="FontFamily" Value="Roboto#700" />
+                            <Setter Property="FontSize" Value="16" />
+                            <Setter Property="TextColor" Value="{StaticResource col_ter}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="vsm_surfaceHourly"
+        TargetType="yummy:PancakeView">
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="Border">
+                                <Setter.Value>
+                                    <yummy:BorderMarkup
+                                        Thickness="3"
+                                        Color="{StaticResource col_oct}" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="HeightRequest" Value="90" />
+                            <Setter Property="WidthRequest" Value="80" />
+                            <Setter Property="BackgroundColor" Value="Transparent" />
+                            <Setter Property="CornerRadius" Value="30,30,30,30" />
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="Border">
+                                <Setter.Value>
+                                    <yummy:BorderMarkup
+                                        Thickness="3"
+                                        Color="{StaticResource col_non}" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="BackgroundGradientStops">
+                                <Setter.Value>
+                                    <yummy:GradientStopCollection>
+                                        <yummy:GradientStop
+                                            Offset="0"
+                                            Color="{StaticResource col_quat}" />
+                                        <yummy:GradientStop
+                                            Offset="0.5"
+                                            Color="{StaticResource col_qui}" />
+                                    </yummy:GradientStopCollection>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="HeightRequest" Value="110" />
+                            <Setter Property="WidthRequest" Value="95" />
+                            <Setter Property="BackgroundColor" Value="{DynamicResource col_qui}" />
+                            <Setter Property="CornerRadius" Value="35,35,35,35" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+    <!--#endregion-->
 </ResourceDictionary>
