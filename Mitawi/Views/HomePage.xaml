@@ -23,7 +23,7 @@
         <!--#region Grid Parent-->
         <Grid
             Padding="16,0,16,8"
-            RowDefinitions="97.5*,2.5*,6,Auto,16,130">
+            RowDefinitions="97.5*,2.5*,34,6,130">
 
             <!--#region Top layer lower 1-->
             <yummy:PancakeView
@@ -64,7 +64,10 @@
                     <!--#region Top icons-->
                     <StackLayout
                         Grid.Row="0"
-                        Grid.Column="0">
+                        Grid.Column="0"
+                        xct:TouchEffect.AnimationDuration="300"
+                        xct:TouchEffect.NativeAnimation="True"
+                        xct:TouchEffect.PressedBackgroundColor="#171D59">
                         <ffimageloadingsvg:SvgCachedImage
                             HeightRequest="40"
                             HorizontalOptions="Center"
@@ -89,6 +92,9 @@
                     <StackLayout
                         Grid.Row="0"
                         Grid.Column="2"
+                        xct:TouchEffect.AnimationDuration="300"
+                        xct:TouchEffect.NativeAnimation="True"
+                        xct:TouchEffect.PressedBackgroundColor="#171D59"
                         Orientation="Horizontal">
                         <Image
                             HorizontalOptions="CenterAndExpand"
@@ -219,27 +225,40 @@
 
             <!--#region Today and 7 days titles-->
             <StackLayout
-                Grid.Row="3"
-                Orientation="Horizontal"
-                Spacing="6">
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Margin="0,0,-16,0"
+                Orientation="Horizontal">
+
                 <Label
                     Style="{StaticResource TxtHeadline6_2}"
                     Text="Today"
+                    TranslationY="2"
                     VerticalTextAlignment="Center" />
-                <Label
+
+                <StackLayout
+                    Padding="16,0"
+                    xct:TouchEffect.AnimationDuration="300"
+                    xct:TouchEffect.NativeAnimation="True"
+                    xct:TouchEffect.PressedBackgroundColor="#C8E6DB"
                     HorizontalOptions="EndAndExpand"
-                    Style="{StaticResource TxtSubtitle1_1}"
-                    Text="7 days"
-                    VerticalTextAlignment="Center" />
-                <Image
-                    HorizontalOptions="End"
-                    Source="{StaticResource icon_arrow_forward_outline}" />
+                    Orientation="Horizontal"
+                    Spacing="6"
+                    TranslationY="2">
+                    <Label
+                        Style="{StaticResource TxtSubtitle1_1}"
+                        Text="7 days"
+                        VerticalTextAlignment="Center" />
+                    <Image
+                        Source="{StaticResource icon_arrow_forward_outline}"
+                        TranslationY="1" />
+                </StackLayout>
             </StackLayout>
             <!--#endregion-->
 
             <!--#region [Item Collections] of weather within 24 hours a day-->
             <ScrollView
-                Grid.Row="5"
+                Grid.Row="4"
                 Margin="-16,0"
                 Padding="16,0"
                 Orientation="Horizontal">
