@@ -1,5 +1,5 @@
 ﻿using FFImageLoading.Forms;
-using Mitawi.ViewModels;
+using Mitawi.Utility;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,7 +12,7 @@ namespace Mitawi.Views
         {
             InitializeComponent();
 
-            BindingContext = new HomeViewModel();
+            BindingContext = ViewModelLocator.HomeViewModel;
         }
 
         private void SelectedWeather_Tapped(object sender, System.EventArgs e)

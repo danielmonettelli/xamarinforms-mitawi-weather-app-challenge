@@ -1,12 +1,12 @@
 ﻿using Mitawi.Models;
 using Mitawi.Services;
-using MvvmHelpers;
 
 namespace Mitawi.ViewModels
 {
-    public class HomeViewModel : BaseViewModel
+    public class HomeViewModel : MyBaseViewModel
     {
-        private readonly RestService _restService;
+        private readonly IWeatherDataService _weatherDataService;
+        private readonly INavigationService _navigationService;
 
         private WeatherData _weatherData;
 
@@ -16,26 +16,17 @@ namespace Mitawi.ViewModels
             set { _weatherData = value; OnPropertyChanged(); }
         }
 
-        public HomeViewModel()
+        public HomeViewModel(IWeatherDataService weatherDataService, INavigationService navigationService)
         {
-            _restService = new RestService();
-            WeatherData = new WeatherData();
+            _weatherDataService = weatherDataService;
+            _navigationService = navigationService;
+
             OnGetWeatherData();
         }
 
         private async void OnGetWeatherData()
         {
-            WeatherData = await _restService.GetWeatherData(GenerateRequestUri(Constants.Constants.OpenWeatherMapEndpoint));
-        }
-
-        private string GenerateRequestUri(string endpoint)
-        {
-            string requestUri = endpoint;
-            requestUri += $"?lat=37.5657";
-            requestUri += $"&lon=126.978";
-            requestUri += "&exclude=current,minutely,alerts&units=metric"; // or exclude
-            requestUri += $"&appid={Constants.Constants.OpenWeatherMapAPIKey}";
-            return requestUri;
+            WeatherData = await _weatherDataService.GetAllWeatherDataAsync(false);
         }
     }
 }

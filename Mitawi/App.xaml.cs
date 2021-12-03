@@ -1,16 +1,21 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
+﻿using Mitawi.Models;
+using Mitawi.Services;
+using Mitawi.Utility;
 using Mitawi.Views;
+using Xamarin.Forms;
 
 namespace Mitawi
 {
     public partial class App : Application
     {
+        public static NavigationService NavigationService { get; } = new NavigationService();
+        public static IWeatherDataService WeatherDataServie { get; set; } = new WeatherDataService(new WeatherDataRepository());
+
         public App()
         {
             InitializeComponent();
+
+            NavigationService.Configure(ViewNames.HomePage, typeof(HomePage));
 
             MainPage = new HomePage();
         }
