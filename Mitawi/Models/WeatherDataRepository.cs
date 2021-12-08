@@ -22,7 +22,7 @@ namespace Mitawi.Models
         }
         public async Task<WeatherData> GetAllWeatherDataAsync()
         {
-            Uri url = new Uri(baseUrl);
+            Uri url = new(baseUrl);
 
             HttpResponseMessage response = await _httpClient.GetAsync(url);
 

@@ -22,7 +22,21 @@
 
 
     <!--#region Headline4-->
+    <Style
+        x:Key="TxtHeadline4_1"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto#700" />
+        <Setter Property="FontSize" Value="34" />
+        <Setter Property="TextColor" Value="{StaticResource col_ten}" />
+    </Style>
 
+    <Style
+        x:Key="Span_TxtHeadline4_1"
+        TargetType="Span">
+        <Setter Property="FontFamily" Value="Roboto#700" />
+        <Setter Property="FontSize" Value="34" />
+        <Setter Property="TextColor" Value="{StaticResource col_ten}" />
+    </Style>
     <!--#endregion-->
 
 
@@ -196,6 +210,22 @@
         <Setter Property="FontSize" Value="56" />
         <Setter Property="TextColor" Value="{StaticResource col_ter}" />
     </Style>
+
+    <Style
+        x:Key="TxtUnknown1_2"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto#700" />
+        <Setter Property="FontSize" Value="58" />
+        <Setter Property="TextColor" Value="{StaticResource col_ter}" />
+    </Style>
+
+    <Style
+        x:Key="Span_TxtUnknown1_2"
+        TargetType="Span">
+        <Setter Property="FontFamily" Value="Roboto#700" />
+        <Setter Property="FontSize" Value="58" />
+        <Setter Property="TextColor" Value="{StaticResource col_ter}" />
+    </Style>
     <!--#endregion-->
 
     <!--#region Visual States Manager-->
@@ -319,7 +349,7 @@
                             </Setter>
                             <Setter Property="HeightRequest" Value="110" />
                             <Setter Property="WidthRequest" Value="95" />
-                            <Setter Property="BackgroundColor" Value="{DynamicResource col_qui}" />
+                            <Setter Property="BackgroundColor" Value="{StaticResource col_qui}" />
                             <Setter Property="CornerRadius" Value="35,35,35,35" />
                         </VisualState.Setters>
                     </VisualState>

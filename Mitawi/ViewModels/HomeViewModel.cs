@@ -1,5 +1,8 @@
 ﻿using Mitawi.Models;
 using Mitawi.Services;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Mitawi.ViewModels
 {
@@ -22,11 +25,21 @@ namespace Mitawi.ViewModels
             _navigationService = navigationService;
 
             OnGetWeatherData();
+
+            DailyForecast7DaysCommand = new Command(OnDailyForecast7DaysCommand);
         }
 
         private async void OnGetWeatherData()
         {
             WeatherData = await _weatherDataService.GetAllWeatherDataAsync(false);
         }
+
+        public ICommand DailyForecast7DaysCommand { get; }
+        private async void OnDailyForecast7DaysCommand()
+        {
+            await Task.Delay(150);
+            _navigationService.NavigateTo("HomeDetailPage", WeatherData);
+        }
+
     }
 }

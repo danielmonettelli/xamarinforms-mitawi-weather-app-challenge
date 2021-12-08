@@ -16,8 +16,9 @@ namespace Mitawi
             InitializeComponent();
 
             NavigationService.Configure(ViewNames.HomePage, typeof(HomePage));
+            NavigationService.Configure(ViewNames.HomeDetailPage, typeof(HomeDetailPage));
 
-            MainPage = new HomePage();
+            MainPage = new NavigationPage(new HomePage());
         }
 
         protected override void OnStart()
