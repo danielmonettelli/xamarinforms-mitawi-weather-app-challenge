@@ -1,5 +1,7 @@
 ﻿using Mitawi.Models;
 using Mitawi.Services;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -8,20 +10,25 @@ namespace Mitawi.ViewModels
 {
     public class HomeDetailViewModel : MyBaseViewModel
     {
-        private readonly IWeatherDataService _weatherDataService;
         private readonly INavigationService _navigationService;
 
-        private WeatherData _selectedWeather;
-        public WeatherData SelectedWeather
+        private Daily _myDaily;
+        public Daily MyDaily
         {
-            get => _selectedWeather;
+            get => _myDaily;
             set
-            { _selectedWeather = value; OnPropertyChanged(); }
+            { _myDaily = value; OnPropertyChanged(); }
         }
 
-        public HomeDetailViewModel(IWeatherDataService weatherDataService, INavigationService navigationService)
+        private List<Daily> _days;
+        public List<Daily> Days
         {
-            _weatherDataService = weatherDataService;
+            get => _days;
+            set { _days = value; OnPropertyChanged(); }
+        }
+
+        public HomeDetailViewModel(INavigationService navigationService)
+        {
             _navigationService = navigationService;
 
             GoBackCommand = new Command(OnGoBackCommand);
@@ -38,11 +45,14 @@ namespace Mitawi.ViewModels
         {
             if (parameter == null)
             {
-                SelectedWeather = new WeatherData();
+                Days = new List<Daily>();
             }
             else
             {
-                SelectedWeather = parameter as WeatherData;
+                Days = parameter as List<Daily>;
+
+                // Get tomorrow's weather
+                MyDaily = Days.ElementAt(1);
             }
         }
 

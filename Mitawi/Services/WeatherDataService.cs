@@ -1,4 +1,5 @@
 ﻿using Mitawi.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Mitawi.Services
@@ -16,5 +17,16 @@ namespace Mitawi.Services
         {
             return await _weatherDataRepository.GetAllWeatherDataAsync();
         }
+
+        public async Task<List<Hourly>> GetHourliesAsync(bool force)
+        {
+            return await _weatherDataRepository.GetHourliesAsync();
+        }
+
+        public async Task<List<Daily>> GetDaysAsync(bool force)
+        {
+            return await _weatherDataRepository.GetDaysAsync();
+        }
+
     }
 }

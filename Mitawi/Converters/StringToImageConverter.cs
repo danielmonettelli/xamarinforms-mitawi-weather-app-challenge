@@ -8,7 +8,7 @@ namespace Mitawi.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return "http://openweathermap.org/img/wn/" + value + "@2x.png";
+            return "http://openweathermap.org/img/wn/" + value + "@" + parameter + "x.png";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

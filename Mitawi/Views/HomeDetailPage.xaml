@@ -11,6 +11,7 @@
     xmlns:viewmodels="clr-namespace:Mitawi.ViewModels"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Name="parentPage"
     ios:Page.UseSafeArea="true"
     x:DataType="viewmodels:HomeDetailViewModel"
     BackgroundColor="{StaticResource col_fourt}"
@@ -20,6 +21,26 @@
         <ResourceDictionary Source="Styles.xaml" />
         <converter:StringToImageConverter x:Key="StringToImageConverter" />
         <xct:DoubleToIntConverter x:Key="DoubleToIntConverter" />
+
+        <xct:MultiConverter x:Key="DatetimeAndFirstCharactersMultiConverter">
+            <converter:UnixTimeToDateTimeConverter />
+            <converter:StringToFirstCharactersConverter />
+        </xct:MultiConverter>
+        <x:Array
+            x:Key="DatetimeAndFirstCharactersMultiConverterParams"
+            Type="{x:Type xct:MultiConverterParameter}">
+            <xct:MultiConverterParameter
+                ConverterType="{x:Type converter:UnixTimeToDateTimeConverter}"
+                Value="dddd" />
+            <xct:MultiConverterParameter
+                ConverterType="{x:Type converter:StringToFirstCharactersConverter}"
+                Value="3" />
+        </x:Array>
+
+        <xct:MultiConverter x:Key="NegativeAndPositiveIntMultiConverter">
+            <xct:DoubleToIntConverter />
+            <converter:NegativeAndPositiveNumberConverter />
+        </xct:MultiConverter>
     </ContentPage.Resources>
 
     <ContentPage.Content>
@@ -137,19 +158,21 @@
                                     <FormattedString>
                                         <Span
                                             Style="{StaticResource Span_TxtUnknown1_2}"
-                                            Text="{Binding SelectedWeather.Daily[0].Temp.Max, Converter={StaticResource DoubleToIntConverter}}" />
+                                            Text="{Binding MyDaily.Temp.Max, Converter={StaticResource DoubleToIntConverter}}" />
                                         <Span
                                             Style="{StaticResource Span_TxtHeadline4_1}"
-                                            Text="{Binding SelectedWeather.Daily[0].Temp.Min, Converter={StaticResource DoubleToIntConverter}, StringFormat='/{0}°'}" />
+                                            Text="{Binding MyDaily.Temp.Min, Converter={StaticResource DoubleToIntConverter}, StringFormat='/{0}°'}" />
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
 
-                            <Label Style="{StaticResource TxtSubtitle1_3}">
+                            <Label
+                                LineBreakMode="CharacterWrap"
+                                Style="{StaticResource TxtSubtitle1_3}">
                                 <Label.Text>
                                     <MultiBinding StringFormat="{}{0} - {1}">
-                                        <Binding Path="SelectedWeather.Hourly[0].Weather[0].Main" />
-                                        <Binding Path="SelectedWeather.Hourly[0].Weather[0].Main" />
+                                        <Binding Path="MyDaily.Weather[0].Main" />
+                                        <Binding Path="MyDaily.Weather[0].Description" />
                                     </MultiBinding>
                                 </Label.Text>
                             </Label>
@@ -180,7 +203,7 @@
                                 Margin="0,8,0,0"
                                 HorizontalTextAlignment="Center"
                                 Style="{StaticResource TxtSubtitle2_2}"
-                                Text="{Binding SelectedWeather.Daily[0].Wind_speed, StringFormat='{0} km/h'}" />
+                                Text="{Binding MyDaily.Wind_speed, StringFormat='{0} km/h'}" />
 
                             <Label
                                 HorizontalTextAlignment="Center"
@@ -199,7 +222,7 @@
                                 Margin="0,8,0,0"
                                 HorizontalTextAlignment="Center"
                                 Style="{StaticResource TxtSubtitle2_2}"
-                                Text="{Binding SelectedWeather.Daily[0].Humidity, StringFormat='{0}%'}" />
+                                Text="{Binding MyDaily.Humidity, StringFormat='{0}%'}" />
 
                             <Label
                                 HorizontalTextAlignment="Center"
@@ -218,7 +241,7 @@
                                 Margin="0,8,0,0"
                                 HorizontalTextAlignment="Center"
                                 Style="{StaticResource TxtSubtitle2_2}"
-                                Text="{Binding SelectedWeather.Daily[0].Wind_gust, StringFormat='{0}%', Converter={StaticResource DoubleToIntConverter}}" />
+                                Text="{Binding MyDaily.Wind_gust, StringFormat='{0}%', Converter={StaticResource DoubleToIntConverter}}" />
 
                             <Label
                                 HorizontalTextAlignment="Center"
@@ -238,7 +261,7 @@
                 Padding="16,32,16,8">
 
                 <StackLayout
-                    BindableLayout.ItemsSource="{Binding SelectedWeather.Daily}"
+                    BindableLayout.ItemsSource="{Binding Days}"
                     Spacing="16">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate x:DataType="models:Daily">
@@ -246,19 +269,26 @@
                                 xct:TouchEffect.AnimationDuration="300"
                                 xct:TouchEffect.NativeAnimation="True"
                                 xct:TouchEffect.PressedBackgroundColor="#030A15"
-                                ColumnDefinitions="Auto, 50*, 48, 70, 50*, 48, 48"
+                                ColumnDefinitions="48, 50*, 48, 70, 50*, 48, 48"
                                 RowDefinitions="48">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding BindingContext.SelectedDailyCommand, Source={x:Reference parentPage}}"
+                                        CommandParameter="{Binding .}" />
+                                </Grid.GestureRecognizers>
 
                                 <Label
                                     Grid.Column="0"
+                                    MaxLines="2"
                                     Style="{StaticResource TxtHeadline6_3}"
-                                    Text="Mon"
+                                    Text="{Binding Dt, Converter={StaticResource DatetimeAndFirstCharactersMultiConverter}, ConverterParameter={StaticResource DatetimeAndFirstCharactersMultiConverterParams}}"
+                                    TextTransform="Uppercase"
                                     VerticalTextAlignment="Center" />
 
                                 <ffimageloading:CachedImage
                                     Grid.Column="2"
                                     Aspect="AspectFill"
-                                    Source="{Binding Weather[0].Icon, Converter={StaticResource StringToImageConverter}}" />
+                                    Source="{Binding Weather[0].Icon, Converter={StaticResource StringToImageConverter}, ConverterParameter=2}" />
 
                                 <Label
                                     Grid.Column="3"
@@ -270,14 +300,14 @@
                                     Grid.Column="5"
                                     HorizontalTextAlignment="End"
                                     Style="{StaticResource TxtHeadline6_4}"
-                                    Text="{Binding Temp.Max, StringFormat='+{0}°', Converter={StaticResource DoubleToIntConverter}}"
+                                    Text="{Binding Temp.Max, Converter={StaticResource NegativeAndPositiveIntMultiConverter}}"
                                     VerticalTextAlignment="Center" />
 
                                 <Label
                                     Grid.Column="6"
                                     HorizontalTextAlignment="End"
                                     Style="{StaticResource TxtHeadline6_3}"
-                                    Text="{Binding Temp.Min, StringFormat='+{0}°', Converter={StaticResource DoubleToIntConverter}}"
+                                    Text="{Binding Temp.Min, Converter={StaticResource NegativeAndPositiveIntMultiConverter}}"
                                     VerticalTextAlignment="Center" />
                             </Grid>
                         </DataTemplate>

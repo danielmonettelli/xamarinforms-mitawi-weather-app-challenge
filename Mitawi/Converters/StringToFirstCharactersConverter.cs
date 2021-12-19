@@ -4,13 +4,11 @@ using Xamarin.Forms;
 
 namespace Mitawi.Converters
 {
-    public class UnixTimeToDateTimeConverter : IValueConverter
+    public class StringToFirstCharactersConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            DateTimeOffset dateTimeOffSet = DateTimeOffset.FromUnixTimeSeconds((long)value).ToLocalTime();
-            DateTime dateTime = dateTimeOffSet.DateTime;
-            return dateTime.ToString((string)parameter);
+            return value.ToString().Substring(0, System.Convert.ToInt32(parameter));
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -1,5 +1,7 @@
 ﻿using Mitawi.Models;
 using Mitawi.Services;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -11,12 +13,31 @@ namespace Mitawi.ViewModels
         private readonly IWeatherDataService _weatherDataService;
         private readonly INavigationService _navigationService;
 
-        private WeatherData _weatherData;
-
-        public WeatherData WeatherData
+        private List<Hourly> _hourlies;
+        public List<Hourly> Hourlies
         {
-            get => _weatherData;
-            set { _weatherData = value; OnPropertyChanged(); }
+            get => _hourlies;
+            set
+            { _hourlies = value; OnPropertyChanged(); }
+        }
+
+        private Hourly _myHourly;
+        public Hourly MyHourly
+        {
+            get => _myHourly;
+            set
+            {
+                _myHourly = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private List<Daily> _days;
+        public List<Daily> Days
+        {
+            get => _days;
+            set
+            { _days = value; OnPropertyChanged(); }
         }
 
         public HomeViewModel(IWeatherDataService weatherDataService, INavigationService navigationService)
@@ -27,18 +48,43 @@ namespace Mitawi.ViewModels
             OnGetWeatherData();
 
             DailyForecast7DaysCommand = new Command(OnDailyForecast7DaysCommand);
+            SelectedHourlyCommand = new Command<Hourly>(OnSelectedHourlyCommand);
+            //SelectedHourlyCommand = new Command(OnSelectedHourlyCommand);
+
+
         }
 
         private async void OnGetWeatherData()
         {
-            WeatherData = await _weatherDataService.GetAllWeatherDataAsync(false);
+            Days = await _weatherDataService.GetDaysAsync(false);
+            Hourlies = await _weatherDataService.GetHourliesAsync(false);
+
+            // Get current time schedule
+            MyHourly = Hourlies.ElementAt(0);
         }
+
+        public ICommand SelectedHourlyCommand { get; }
+        private void OnSelectedHourlyCommand(Hourly hourly)
+        {
+            if (hourly is not null)
+            {
+                MyHourly = hourly;
+            }
+        }
+
+        //private void OnSelectedHourlyCommand(object obj)
+        //{
+        //    if (obj is Hourly hourly)
+        //    {
+        //        SelectedHourly = hourly;
+        //    }
+        //}
 
         public ICommand DailyForecast7DaysCommand { get; }
         private async void OnDailyForecast7DaysCommand()
         {
             await Task.Delay(150);
-            _navigationService.NavigateTo("HomeDetailPage", WeatherData);
+            _navigationService.NavigateTo("HomeDetailPage", Days);
         }
 
     }

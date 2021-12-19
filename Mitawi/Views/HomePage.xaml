@@ -161,7 +161,7 @@
                         <Label
                             HorizontalTextAlignment="Center"
                             Style="{StaticResource TxtUnknown1_1}"
-                            Text="{Binding WeatherData.Hourly[0].Temp, StringFormat='{0}°', Converter={StaticResource DoubleToIntConverter}}" />
+                            Text="{Binding MyHourly.Temp, StringFormat='{0}°', Converter={StaticResource DoubleToIntConverter}}" />
 
                         <Label
                             HorizontalTextAlignment="Center"
@@ -199,7 +199,7 @@
                                 Margin="0,8,0,0"
                                 HorizontalTextAlignment="Center"
                                 Style="{StaticResource TxtSubtitle2_2}"
-                                Text="{Binding WeatherData.Hourly[0].Wind_speed, StringFormat='{0} km/h'}" />
+                                Text="{Binding MyHourly.Wind_speed, StringFormat='{0} km/h'}" />
 
                             <Label
                                 HorizontalTextAlignment="Center"
@@ -218,7 +218,7 @@
                                 Margin="0,8,0,0"
                                 HorizontalTextAlignment="Center"
                                 Style="{StaticResource TxtSubtitle2_2}"
-                                Text="{Binding WeatherData.Hourly[0].Humidity, StringFormat='{0}%'}" />
+                                Text="{Binding MyHourly.Humidity, StringFormat='{0}%'}" />
 
                             <Label
                                 HorizontalTextAlignment="Center"
@@ -237,7 +237,7 @@
                                 Margin="0,8,0,0"
                                 HorizontalTextAlignment="Center"
                                 Style="{StaticResource TxtSubtitle2_2}"
-                                Text="{Binding WeatherData.Hourly[0].Wind_gust, StringFormat='{0}%', Converter={StaticResource DoubleToIntConverter}}" />
+                                Text="{Binding MyHourly.Wind_gust, StringFormat='{0}%', Converter={StaticResource DoubleToIntConverter}}" />
 
                             <Label
                                 HorizontalTextAlignment="Center"
@@ -296,7 +296,7 @@
                 Orientation="Horizontal">
 
                 <StackLayout
-                    BindableLayout.ItemsSource="{Binding WeatherData.Hourly}"
+                    BindableLayout.ItemsSource="{Binding Hourlies}"
                     Orientation="Horizontal"
                     Spacing="16">
                     <BindableLayout.ItemTemplate>
@@ -308,7 +308,10 @@
                                 Style="{StaticResource vsm_surfaceHourly}"
                                 VerticalOptions="Center">
                                 <yummy:PancakeView.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="SelectedWeather_Tapped" />
+                                    <TapGestureRecognizer
+                                        Command="{Binding BindingContext.SelectedHourlyCommand, Source={x:Reference parentPage}}"
+                                        CommandParameter="{Binding .}"
+                                        Tapped="SelectedWeather_Tapped" />
                                 </yummy:PancakeView.GestureRecognizers>
                                 <StackLayout Spacing="2">
 
@@ -324,7 +327,7 @@
                                     <ffimageloading:CachedImage
                                         x:Name="imageSmallWeather"
                                         Aspect="AspectFill"
-                                        Source="{Binding Weather[0].Icon, Converter={StaticResource StringToImageConverter}}"
+                                        Source="{Binding Weather[0].Icon, Converter={StaticResource StringToImageConverter}, ConverterParameter=2}"
                                         Style="{StaticResource vsm_imageSmallWeather}" />
                                     <!--#endregion-->
 
@@ -333,7 +336,7 @@
                                         x:Name="labelHour"
                                         HorizontalTextAlignment="Center"
                                         Style="{StaticResource vsm_labelHour}"
-                                        Text="{Binding Dt, Converter={StaticResource UnixTimeToDateTimeConverter}, StringFormat='{0:HH:mm}'}"
+                                        Text="{Binding Dt, Converter={StaticResource UnixTimeToDateTimeConverter}, ConverterParameter=HH:mm}"
                                         VerticalOptions="EndAndExpand" />
                                     <!--#endregion-->
                                 </StackLayout>
