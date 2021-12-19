@@ -3,8 +3,36 @@
     x:Class="Mitawi.Views.Styles"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:Mitawi.Converters"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
+
+    <!--#region Converters-->
+    <converter:UnixTimeToDateTimeConverter x:Key="UnixTimeToDateTimeConverter" />
+    <converter:StringToImageConverter x:Key="StringToImageConverter" />
+    <xct:DoubleToIntConverter x:Key="DoubleToIntConverter" />
+
+    <xct:MultiConverter x:Key="DatetimeAndFirstCharactersMultiConverter">
+        <converter:UnixTimeToDateTimeConverter />
+        <converter:StringToFirstCharactersConverter />
+    </xct:MultiConverter>
+    <x:Array
+        x:Key="DatetimeAndFirstCharactersMultiConverterParams"
+        Type="{x:Type xct:MultiConverterParameter}">
+        <xct:MultiConverterParameter
+            ConverterType="{x:Type converter:UnixTimeToDateTimeConverter}"
+            Value="dddd" />
+        <xct:MultiConverterParameter
+            ConverterType="{x:Type converter:StringToFirstCharactersConverter}"
+            Value="3" />
+    </x:Array>
+
+    <xct:MultiConverter x:Key="NegativeAndPositiveIntMultiConverter">
+        <xct:DoubleToIntConverter />
+        <converter:NegativeAndPositiveNumberConverter />
+    </xct:MultiConverter>
+    <!--#endregion-->
 
     <!--#region Headline1-->
 
