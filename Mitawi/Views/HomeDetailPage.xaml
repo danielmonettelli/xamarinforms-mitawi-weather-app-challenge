@@ -277,14 +277,14 @@
                                     Grid.Column="5"
                                     HorizontalTextAlignment="End"
                                     Style="{StaticResource TxtHeadline6_4}"
-                                    Text="{Binding Temp.Max, Converter={StaticResource NegativeAndPositiveIntMultiConverter}}"
+                                    Text="{Binding Temp.Max, Converter={StaticResource NegativeAndPositiveIntMultiConverter}, StringFormat='{0}°'}"
                                     VerticalTextAlignment="Center" />
 
                                 <Label
                                     Grid.Column="6"
                                     HorizontalTextAlignment="End"
                                     Style="{StaticResource TxtHeadline6_3}"
-                                    Text="{Binding Temp.Min, Converter={StaticResource NegativeAndPositiveIntMultiConverter}}"
+                                    Text="{Binding Temp.Min, Converter={StaticResource NegativeAndPositiveIntMultiConverter}, StringFormat='{0}°'}"
                                     VerticalTextAlignment="Center" />
                             </Grid>
                         </DataTemplate>

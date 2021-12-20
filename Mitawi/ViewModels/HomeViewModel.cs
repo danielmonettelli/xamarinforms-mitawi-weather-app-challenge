@@ -50,8 +50,6 @@ namespace Mitawi.ViewModels
             DailyForecast7DaysCommand = new Command(OnDailyForecast7DaysCommand);
             SelectedHourlyCommand = new Command<Hourly>(OnSelectedHourlyCommand);
             //SelectedHourlyCommand = new Command(OnSelectedHourlyCommand);
-
-
         }
 
         private async void OnGetWeatherData()
