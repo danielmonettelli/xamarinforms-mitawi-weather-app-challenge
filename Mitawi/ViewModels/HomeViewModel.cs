@@ -1,10 +1,10 @@
 ﻿using Mitawi.Models;
 using Mitawi.Services;
+using MvvmHelpers.Commands;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace Mitawi.ViewModels
 {
@@ -47,7 +47,7 @@ namespace Mitawi.ViewModels
 
             OnGetWeatherData();
 
-            DailyForecast7DaysCommand = new Command(OnDailyForecast7DaysCommand);
+            DailyForecast7DaysCommand = new AsyncCommand(OnDailyForecast7DaysCommand);
             SelectedHourlyCommand = new Command<Hourly>(OnSelectedHourlyCommand);
             //SelectedHourlyCommand = new Command(OnSelectedHourlyCommand);
         }
@@ -62,11 +62,11 @@ namespace Mitawi.ViewModels
         }
 
         public ICommand SelectedHourlyCommand { get; }
-        private void OnSelectedHourlyCommand(Hourly hourly)
+        private void OnSelectedHourlyCommand(Hourly selectedHourly)
         {
-            if (hourly is not null)
+            if (selectedHourly is not null)
             {
-                MyHourly = hourly;
+                MyHourly = selectedHourly;
             }
         }
 
@@ -74,12 +74,12 @@ namespace Mitawi.ViewModels
         //{
         //    if (obj is Hourly hourly)
         //    {
-        //        SelectedHourly = hourly;
+        //        MyHourly = hourly;
         //    }
         //}
 
         public ICommand DailyForecast7DaysCommand { get; }
-        private async void OnDailyForecast7DaysCommand()
+        private async Task OnDailyForecast7DaysCommand()
         {
             await Task.Delay(150);
             _navigationService.NavigateTo("HomeDetailPage", Days);

@@ -1,10 +1,10 @@
 ﻿using Mitawi.Models;
 using Mitawi.Services;
+using MvvmHelpers.Commands;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace Mitawi.ViewModels
 {
@@ -31,11 +31,11 @@ namespace Mitawi.ViewModels
         {
             _navigationService = navigationService;
 
-            GoBackCommand = new Command(OnGoBackCommand);
+            GoBackCommand = new AsyncCommand(OnGoBackCommand);
         }
 
         public ICommand GoBackCommand { get; }
-        private async void OnGoBackCommand()
+        private async Task OnGoBackCommand()
         {
             await Task.Delay(300);
             _navigationService.GoBack();

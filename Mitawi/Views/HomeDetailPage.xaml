@@ -248,11 +248,6 @@
                                 xct:TouchEffect.PressedBackgroundColor="#030A15"
                                 ColumnDefinitions="48, 50*, 48, 70, 50*, 48, 48"
                                 RowDefinitions="48">
-                                <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer
-                                        Command="{Binding BindingContext.SelectedDailyCommand, Source={x:Reference parentPage}}"
-                                        CommandParameter="{Binding .}" />
-                                </Grid.GestureRecognizers>
 
                                 <Label
                                     Grid.Column="0"
