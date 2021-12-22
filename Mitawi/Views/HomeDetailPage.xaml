@@ -254,7 +254,6 @@
                                     MaxLines="2"
                                     Style="{StaticResource TxtHeadline6_3}"
                                     Text="{Binding Dt, Converter={StaticResource DatetimeAndFirstCharactersMultiConverter}, ConverterParameter={StaticResource DatetimeAndFirstCharactersMultiConverterParams}}"
-                                    TextTransform="Uppercase"
                                     VerticalTextAlignment="Center" />
 
                                 <ffimageloading:CachedImage
