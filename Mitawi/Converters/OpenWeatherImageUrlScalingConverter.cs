@@ -1,0 +1,20 @@
+﻿using System;
+using System.Globalization;
+using Xamarin.Forms;
+
+namespace Mitawi.Converters
+{
+    public class OpenWeatherImageUrlScalingConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            // Image scale type in the parameter: 2(100x100), 4(200x200)
+            return "http://openweathermap.org/img/wn/" + value + "@" + parameter + "x.png";
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

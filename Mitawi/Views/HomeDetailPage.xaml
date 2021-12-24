@@ -121,7 +121,7 @@
                         <ffimageloading:CachedImage
                             Grid.Column="0"
                             HorizontalOptions="EndAndExpand"
-                            Source="{xct:ImageResource Id=Mitawi.Resources.Images.12.png}" />
+                            Source="{Binding MyDaily.Weather[0].Icon, Converter={StaticResource CustomImageUrlScalingConverter}, ConverterParameter=10}" />
 
 
                         <StackLayout Grid.Column="1">
@@ -246,7 +246,7 @@
                                 xct:TouchEffect.AnimationDuration="300"
                                 xct:TouchEffect.NativeAnimation="True"
                                 xct:TouchEffect.PressedBackgroundColor="#030A15"
-                                ColumnDefinitions="48, 50*, 48, 70, 50*, 48, 48"
+                                ColumnDefinitions="48, 50*, 44, 70, 50*, 48, 48"
                                 RowDefinitions="48">
 
                                 <Label
@@ -258,8 +258,7 @@
 
                                 <ffimageloading:CachedImage
                                     Grid.Column="2"
-                                    Aspect="AspectFill"
-                                    Source="{Binding Weather[0].Icon, Converter={StaticResource StringToImageConverter}, ConverterParameter=2}" />
+                                    Source="{Binding Weather[0].Icon, Converter={StaticResource CustomImageUrlScalingConverter}, ConverterParameter=2}" />
 
                                 <Label
                                     Grid.Column="3"

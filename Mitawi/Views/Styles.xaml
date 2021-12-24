@@ -10,7 +10,8 @@
 
     <!--#region Converters-->
     <converter:UnixTimeToDateTimeConverter x:Key="UnixTimeToDateTimeConverter" />
-    <converter:StringToImageConverter x:Key="StringToImageConverter" />
+    <converter:OpenWeatherImageUrlScalingConverter x:Key="OpenWeatherImageUrlScalingConverter" />
+    <converter:CustomImageUrlScalingConverter x:Key="CustomImageUrlScalingConverter" />
     <xct:DoubleToIntConverter x:Key="DoubleToIntConverter" />
 
     <xct:MultiConverter x:Key="DatetimeAndFirstCharactersMultiConverter">

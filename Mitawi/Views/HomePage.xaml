@@ -146,7 +146,7 @@
                     <ffimageloading:CachedImage
                         Grid.Row="3"
                         Grid.Column="1"
-                        Source="{xct:ImageResource Id=Mitawi.Resources.Images.12.png}" />
+                        Source="{Binding MyHourly.Weather[0].Icon, Converter={StaticResource CustomImageUrlScalingConverter}, ConverterParameter=10}" />
                     <!--#endregion-->
 
                     <!--#region Basic description of the climate-->
@@ -322,8 +322,7 @@
                                     <!--#region Small weather icon-->
                                     <ffimageloading:CachedImage
                                         x:Name="imageSmallWeather"
-                                        Aspect="AspectFill"
-                                        Source="{Binding Weather[0].Icon, Converter={StaticResource StringToImageConverter}, ConverterParameter=2}"
+                                        Source="{Binding Weather[0].Icon, Converter={StaticResource CustomImageUrlScalingConverter}, ConverterParameter=2}"
                                         Style="{StaticResource vsm_imageSmallWeather}" />
                                     <!--#endregion-->
 
