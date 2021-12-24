@@ -4,7 +4,7 @@
 
 [![Xamarin Mobile CI](https://github.com/danielmonettelli/Mitawi/actions/workflows/mobile.yml/badge.svg)](https://github.com/danielmonettelli/Mitawi/actions/workflows/mobile.yml)
 
-[![Open Source ❤](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](#Open-Source-Love)  [![licence](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/danielmonettelli/Mitawi/blob/main/LICENSE)
+[![Open Source ❤](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](#open-source-)  [![licence](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/danielmonettelli/Mitawi/blob/main/LICENSE)
 
 [![Stars](https://img.shields.io/github/stars/danielmonettelli/Mitawi)](https://github.com/danielmonettelli/Mitawi/stargazers) [![Forks](https://img.shields.io/github/forks/danielmonettelli/Mitawi)](https://github.com/danielmonettelli/Mitawi/network/members) [![Pull Requests](https://img.shields.io/github/issues-pr/danielmonettelli/Mitawi)](https://github.com/danielmonettelli/Mitawi/pulls) [![Issues](https://img.shields.io/github/issues/danielmonettelli/Mitawi)](https://github.com/danielmonettelli/Mitawi/issues) [![Contributors](https://img.shields.io/github/contributors/danielmonettelli/Mitawi?color=2b9348)](https://github.com/danielmonettelli/Mitawi/graphs/contributors)
 
