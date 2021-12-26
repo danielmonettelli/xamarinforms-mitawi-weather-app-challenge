@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Mitawi.Constants;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace Mitawi.Models
 {
@@ -10,12 +13,15 @@ namespace Mitawi.Models
     {
         private readonly HttpClient _httpClient;
 
-        private static readonly string baseUrl =
-            $"{Constants.APIConstants.OpenWeatherMapEndpoint}" +
-            "?lat=37.5657" +
-            "&lon=126.978" +
-            "&exclude=current,minutely,alerts&units=metric" +
-            $"&appid={Constants.APIConstants.OpenWeatherMapAPIKey}";
+        private string GenerateRequestUri(string endpoint, double latitude, double longitude)
+        {
+            string requestUri = endpoint;
+            requestUri += $"?lat={latitude}";
+            requestUri += $"&lon={longitude}";
+            requestUri += "&exclude=current,minutely,alerts&units=metric";
+            requestUri += $"&appid={APIConstants.OpenWeatherMapAPIKey}";
+            return requestUri;
+        }
 
         public WeatherDataRepository()
         {
@@ -23,7 +29,8 @@ namespace Mitawi.Models
         }
         public async Task<WeatherData> GetAllWeatherDataAsync()
         {
-            Uri url = new(baseUrl);
+            Location location = await Geolocation.GetLastKnownLocationAsync();
+            Uri url = new(GenerateRequestUri(APIConstants.OpenWeatherMapEndpoint, location.Latitude, location.Longitude));
 
             HttpResponseMessage response = await _httpClient.GetAsync(url);
 
@@ -37,7 +44,8 @@ namespace Mitawi.Models
 
         public async Task<List<Hourly>> GetHourliesAsync()
         {
-            Uri url = new(baseUrl);
+            Location location = await Geolocation.GetLastKnownLocationAsync();
+            Uri url = new(GenerateRequestUri(APIConstants.OpenWeatherMapEndpoint, location.Latitude, location.Longitude));
 
             HttpResponseMessage response = await _httpClient.GetAsync(url);
 
@@ -51,7 +59,8 @@ namespace Mitawi.Models
 
         public async Task<List<Daily>> GetDaysAsync()
         {
-            Uri url = new(baseUrl);
+            Location location = await Geolocation.GetLastKnownLocationAsync();
+            Uri url = new(GenerateRequestUri(APIConstants.OpenWeatherMapEndpoint, location.Latitude, location.Longitude));
 
             HttpResponseMessage response = await _httpClient.GetAsync(url);
 
@@ -61,6 +70,16 @@ namespace Mitawi.Models
                 return JsonSerializer.Deserialize<WeatherData>(content).Daily;
             }
             return null;
+
+        }
+
+        public async Task<Placemark> GetPlacemarkAsync()
+        {
+            Location location = await Geolocation.GetLastKnownLocationAsync();
+
+            IEnumerable<Placemark> placemarks = await Geocoding.GetPlacemarksAsync(location.Latitude, location.Longitude);
+            Placemark placemark = placemarks?.FirstOrDefault();
+            return placemark;
         }
 
     }

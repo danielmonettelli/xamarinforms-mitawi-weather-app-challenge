@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 
 namespace Mitawi.ViewModels
 {
@@ -40,6 +41,17 @@ namespace Mitawi.ViewModels
             { _days = value; OnPropertyChanged(); }
         }
 
+        private Placemark _myPlacemark;
+        public Placemark MyPlacemark
+        {
+            get => _myPlacemark;
+            set
+            {
+                _myPlacemark = value;
+                OnPropertyChanged();
+            }
+        }
+
         public HomeViewModel(IWeatherDataService weatherDataService, INavigationService navigationService)
         {
             _weatherDataService = weatherDataService;
@@ -54,6 +66,7 @@ namespace Mitawi.ViewModels
 
         private async void OnGetWeatherData()
         {
+            MyPlacemark = await _weatherDataService.GetPlacemarkAsync(false);
             Days = await _weatherDataService.GetDaysAsync(false);
             Hourlies = await _weatherDataService.GetHourliesAsync(false);
 

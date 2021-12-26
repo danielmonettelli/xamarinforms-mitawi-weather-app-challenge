@@ -91,7 +91,7 @@
 
                         <Label
                             Style="{StaticResource TxtHeadline5_1}"
-                            Text="South Korea" />
+                            Text="{Binding MyPlacemark.CountryName}" />
                     </StackLayout>
 
 
@@ -162,13 +162,13 @@
                         <Label
                             HorizontalTextAlignment="Center"
                             Style="{StaticResource TxtHeadline6_1}"
-                            Text="Seoul" />
+                            Text="{Binding MyPlacemark.AdminArea}" />
 
                         <Label
                             Margin="0,1,0,0"
                             HorizontalTextAlignment="Center"
                             Style="{StaticResource TxtSubtitle2_1}"
-                            Text="Wednesday, 24 November" />
+                            Text="{Binding Days[0].Dt, Converter={StaticResource UnixTimeToDateTimeConverter}, ConverterParameter='dddd, dd MMM'}" />
                     </StackLayout>
                     <!--#endregion-->
 

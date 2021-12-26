@@ -1,6 +1,7 @@
 ﻿using Mitawi.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace Mitawi.Services
 {
@@ -9,5 +10,7 @@ namespace Mitawi.Services
         Task<WeatherData> GetAllWeatherDataAsync(bool force);
         Task<List<Hourly>> GetHourliesAsync(bool force);
         Task<List<Daily>> GetDaysAsync(bool force);
+        Task<Placemark> GetPlacemarkAsync(bool force);
+
     }
 }
