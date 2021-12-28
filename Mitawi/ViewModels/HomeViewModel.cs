@@ -85,7 +85,7 @@ namespace Mitawi.ViewModels
         public ICommand DailyForecast7DaysCommand { get; }
         private async Task OnDailyForecast7DaysCommand()
         {
-            await Task.Delay(150);
+            await Task.Delay(150).ConfigureAwait(true);
             _navigationService.NavigateTo("HomeDetailPage", Days);
         }
 

@@ -37,7 +37,7 @@ namespace Mitawi.ViewModels
         public ICommand GoBackCommand { get; }
         private async Task OnGoBackCommand()
         {
-            await Task.Delay(300);
+            await Task.Delay(300).ConfigureAwait(true);
             _navigationService.GoBack();
         }
 

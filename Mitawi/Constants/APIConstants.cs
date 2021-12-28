@@ -2,7 +2,7 @@
 {
     public static class APIConstants
     {
-        public static string OpenWeatherMapEndpoint = "https://api.openweathermap.org/data/2.5/onecall";
-        public static string OpenWeatherMapAPIKey = "INSERT_API_KEY_HERE";
+        public const string OpenWeatherMapEndpoint = "https://api.openweathermap.org/data/2.5/onecall";
+        public const string OpenWeatherMapAPIKey = "INSERT_API_KEY_HERE";
     }
 }
