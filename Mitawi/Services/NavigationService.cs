@@ -22,7 +22,7 @@ namespace Mitawi.Services
             MainPage.Navigation.PopAsync();
         }
 
-        public void NavigateTo(string pageKey, object parameter = null)
+        public void NavigateTo(string pageKey, object parameter)
         {
             if (pages.TryGetValue(pageKey, out Type pageType))
             {

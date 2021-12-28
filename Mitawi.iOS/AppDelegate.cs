@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
+﻿
 using Foundation;
 using UIKit;
 
@@ -25,10 +22,8 @@ namespace Mitawi.iOS
             global::Xamarin.Forms.Forms.Init();
 
             // FFImageLoading SECTOR in iOS
-            // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             FFImageLoading.Forms.Platform.CachedImageRenderer.InitImageSourceHandler();
-            // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
             LoadApplication(new App());
 

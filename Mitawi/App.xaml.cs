@@ -23,14 +23,17 @@ namespace Mitawi
 
         protected override void OnStart()
         {
+            // Not supported at the moment
         }
 
         protected override void OnSleep()
         {
+            // Not supported at the moment
         }
 
         protected override void OnResume()
         {
+            // Not supported at the moment
         }
     }
 }

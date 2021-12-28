@@ -61,7 +61,6 @@ namespace Mitawi.ViewModels
 
             DailyForecast7DaysCommand = new AsyncCommand(OnDailyForecast7DaysCommand);
             SelectedHourlyCommand = new Command<Hourly>(OnSelectedHourlyCommand);
-            //SelectedHourlyCommand = new Command(OnSelectedHourlyCommand);
         }
 
         private async void OnGetWeatherData()
@@ -82,14 +81,6 @@ namespace Mitawi.ViewModels
                 MyHourly = selectedHourly;
             }
         }
-
-        //private void OnSelectedHourlyCommand(object obj)
-        //{
-        //    if (obj is Hourly hourly)
-        //    {
-        //        MyHourly = hourly;
-        //    }
-        //}
 
         public ICommand DailyForecast7DaysCommand { get; }
         private async Task OnDailyForecast7DaysCommand()

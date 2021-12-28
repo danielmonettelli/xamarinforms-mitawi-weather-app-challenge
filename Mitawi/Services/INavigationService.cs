@@ -9,6 +9,6 @@ namespace Mitawi.Services
 
         void Configure(string key, Type pageType);
         void GoBack();
-        void NavigateTo(string pageKey, object parameter = null);
+        void NavigateTo(string pageKey, object parameter);
     }
 }

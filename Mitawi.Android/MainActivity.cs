@@ -1,13 +1,12 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
 using Android.OS;
+using Android.Runtime;
 
 namespace Mitawi.Droid
 {
-    [Activity(Label = "Mitawi", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
+    [Activity(Label = "Mitawi", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -18,10 +17,8 @@ namespace Mitawi.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             // FFImageLoading SECTOR in Android
-            // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
             FFImageLoading.Forms.Platform.CachedImageRenderer.InitImageViewHandler();
-            // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
             LoadApplication(new App());
         }

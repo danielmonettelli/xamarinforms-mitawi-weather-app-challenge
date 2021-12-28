@@ -1,8 +1,8 @@
 ﻿namespace Mitawi.Utility
 {
-    public class ViewNames
+    public static class ViewNames
     {
-        public const string HomePage = "HomePage";
-        public const string HomeDetailPage = "HomeDetailPage";
+        public static string HomePage = "HomePage";
+        public static string HomeDetailPage = "HomeDetailPage";
     }
 }
