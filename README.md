@@ -1,5 +1,6 @@
 # Xamarin.Forms UI/UX Challenges - Mitawi
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3f6e895c980848fa9aad033f53dad161)](https://app.codacy.com/gh/danielmonettelli/Mitawi?utm_source=github.com&utm_medium=referral&utm_content=danielmonettelli/Mitawi&utm_campaign=Badge_Grade_Settings)
 [![Twitter](https://img.shields.io/twitter/follow/DanielMonetelli.svg?style=social)](https://twitter.com/DanielMonetelli)
 
 [![Xamarin Mobile CI](https://github.com/danielmonettelli/Mitawi/actions/workflows/mobile.yml/badge.svg)](https://github.com/danielmonettelli/Mitawi/actions/workflows/mobile.yml)
