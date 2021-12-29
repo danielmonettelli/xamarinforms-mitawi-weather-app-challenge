@@ -63,12 +63,13 @@
                     RowDefinitions="48, Auto, 4, *, Auto, 14, 2, 14, Auto">
 
                     <!--#region Top icons-->
-                    <StackLayout
+                    <yummy:PancakeView
                         Grid.Row="0"
                         Grid.Column="0"
                         xct:TouchEffect.AnimationDuration="300"
                         xct:TouchEffect.NativeAnimation="True"
-                        xct:TouchEffect.PressedBackgroundColor="#171D59">
+                        xct:TouchEffect.PressedBackgroundColor="#171D59"
+                        CornerRadius="8,8,8,8">
 
                         <ffimageloadingsvg:SvgCachedImage
                             HeightRequest="40"
@@ -76,7 +77,7 @@
                             Source="resource://Mitawi.Resources.SVGs.svg_main_list_outline.svg"
                             VerticalOptions="CenterAndExpand"
                             WidthRequest="40" />
-                    </StackLayout>
+                    </yummy:PancakeView>
 
 
                     <StackLayout
@@ -95,19 +96,19 @@
                     </StackLayout>
 
 
-                    <StackLayout
+                    <yummy:PancakeView
                         Grid.Row="0"
                         Grid.Column="2"
                         xct:TouchEffect.AnimationDuration="300"
                         xct:TouchEffect.NativeAnimation="True"
                         xct:TouchEffect.PressedBackgroundColor="#171D59"
-                        Orientation="Horizontal">
+                        CornerRadius="8,8,8,8">
 
                         <Image
-                            HorizontalOptions="CenterAndExpand"
+                            HorizontalOptions="Center"
                             Source="{StaticResource icon_picker_solid}"
-                            VerticalOptions="Center" />
-                    </StackLayout>
+                            VerticalOptions="CenterAndExpand" />
+                    </yummy:PancakeView>
                     <!--#endregion-->
 
                     <!--#region Updating-->

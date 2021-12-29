@@ -63,15 +63,16 @@
                     RowDefinitions="48, 24, 130, 14, 2, 14, Auto">
 
                     <!--#region Top icons-->
-                    <StackLayout
+                    <yummy:PancakeView
                         Grid.Row="0"
                         Grid.Column="0"
                         xct:TouchEffect.AnimationDuration="300"
                         xct:TouchEffect.NativeAnimation="True"
-                        xct:TouchEffect.PressedBackgroundColor="#171D59">
-                        <StackLayout.GestureRecognizers>
+                        xct:TouchEffect.PressedBackgroundColor="#171D59"
+                        CornerRadius="8,8,8,8">
+                        <yummy:PancakeView.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding GoBackCommand}" />
-                        </StackLayout.GestureRecognizers>
+                        </yummy:PancakeView.GestureRecognizers>
 
                         <ffimageloadingsvg:SvgCachedImage
                             HeightRequest="40"
@@ -79,7 +80,7 @@
                             Source="resource://Mitawi.Resources.SVGs.svg_circle_arrow_backward_outline.svg"
                             VerticalOptions="CenterAndExpand"
                             WidthRequest="40" />
-                    </StackLayout>
+                    </yummy:PancakeView>
 
                     <StackLayout
                         Grid.Row="0"
@@ -96,19 +97,19 @@
                             Text="7 days" />
                     </StackLayout>
 
-                    <StackLayout
+                    <yummy:PancakeView
                         Grid.Row="0"
                         Grid.Column="2"
                         xct:TouchEffect.AnimationDuration="300"
                         xct:TouchEffect.NativeAnimation="True"
                         xct:TouchEffect.PressedBackgroundColor="#171D59"
-                        Orientation="Horizontal">
+                        CornerRadius="8,8,8,8">
 
                         <Image
-                            HorizontalOptions="CenterAndExpand"
+                            HorizontalOptions="Center"
                             Source="{StaticResource icon_picker_solid}"
-                            VerticalOptions="Center" />
-                    </StackLayout>
+                            VerticalOptions="CenterAndExpand" />
+                    </yummy:PancakeView>
                     <!--#endregion-->
 
                     <!--#region Tomorrow's weather-->
