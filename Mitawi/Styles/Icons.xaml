@@ -13,10 +13,17 @@
         Color="{StaticResource col_ter}" />
 
     <FontImageSource
-        x:Key="icon_location_solid"
+        x:Key="icon_location_solid_phone"
         FontFamily="CustomFontIcons"
         Glyph="{x:Static FontIcons:CustomFontIcons.icon_location_solid}"
         Size="18"
+        Color="{StaticResource col_ter}" />
+
+    <FontImageSource
+        x:Key="icon_location_solid_tablet"
+        FontFamily="CustomFontIcons"
+        Glyph="{x:Static FontIcons:CustomFontIcons.icon_location_solid}"
+        Size="25"
         Color="{StaticResource col_ter}" />
 
     <FontImageSource
