@@ -18,65 +18,35 @@
 
     <ContentPage.Resources>
         <ResourceDictionary Source="Styles.xaml" />
+        <ResourceDictionary Source="Orientations/HomePageOrientation.xaml" />
     </ContentPage.Resources>
 
     <ContentPage.Content>
         <!--#region Grid Parent-->
-        <Grid Padding="16,0,16,8">
-
-            <Grid.RowDefinitions>
-                <!--  0  -->
-                <RowDefinition Height="97.5*" />
-                <!--  1  -->
-                <RowDefinition Height="2.5*" />
-                <!--  2  -->
-                <RowDefinition Height="34" />
-                <!--  3  -->
-                <RowDefinition Height="6" />
-                <!--  4  -->
-                <RowDefinition>
-                    <RowDefinition.Height>
-                        <OnIdiom x:TypeArguments="GridLength">
-                            <OnIdiom.Phone>
-                                <OnPlatform x:TypeArguments="GridLength">
-                                    <On
-                                        Platform="iOS,Android"
-                                        Value="130" />
-                                </OnPlatform>
-                            </OnIdiom.Phone>
-
-                            <OnIdiom.Tablet>
-                                <OnPlatform x:TypeArguments="GridLength">
-                                    <On
-                                        Platform="iOS,Android"
-                                        Value="188" />
-                                </OnPlatform>
-                            </OnIdiom.Tablet>
-                        </OnIdiom>
-                    </RowDefinition.Height>
-                </RowDefinition>
-            </Grid.RowDefinitions>
+        <Grid
+            x:Name="gridParent"
+            Style="{StaticResource vsm_orientation_gridParent}">
 
             <!--#region Top layer lower 1-->
             <yummy:PancakeView
-                Grid.Row="0"
-                Grid.RowSpan="2"
+                x:Name="topLayerLower1"
                 BackgroundColor="{StaticResource col_thirt}"
                 CornerRadius="0,0,43,43"
                 Shadow="{yummy:ShadowMarkup Color={StaticResource col_thirt},
                                             Opacity=0.93,
-                                            BlurRadius=45}" />
+                                            BlurRadius=45}"
+                Style="{StaticResource vsm_orientation_topLayerLower1}" />
             <!--#endregion-->
 
             <!--#region Top layer higher 2-->
             <yummy:PancakeView
-                Grid.Row="0"
-                Margin="-16,0"
+                x:Name="topLayerHigher2"
                 BackgroundGradientEndPoint="0,1"
                 BackgroundGradientStartPoint="0,0"
                 Border="{yummy:BorderMarkup Color={StaticResource col_twel},
                                             Thickness=3}"
-                CornerRadius="0,0,45,45">
+                CornerRadius="0,0,45,45"
+                Style="{StaticResource vsm_orientation_topLayerHigher2}">
                 <yummy:PancakeView.BackgroundGradientStops>
                     <yummy:GradientStopCollection>
                         <yummy:GradientStop
@@ -89,9 +59,9 @@
                 </yummy:PancakeView.BackgroundGradientStops>
 
                 <Grid
+                    x:Name="gridAdminTopLayerHigher2"
                     Padding="16,0"
-                    ColumnDefinitions="48,*,48"
-                    RowDefinitions="48, Auto, 4, *, Auto, 14, 2, 14, Auto">
+                    Style="{StaticResource vsm_orientation_gridAdminTopLayerHigher2}">
 
                     <!--#region Top icons-->
                     <yummy:PancakeView
@@ -112,11 +82,11 @@
 
 
                     <StackLayout
-                        Grid.Row="0"
-                        Grid.Column="1"
+                        x:Name="iconAndTextLocation"
                         HorizontalOptions="CenterAndExpand"
                         Orientation="Horizontal"
                         Spacing="6"
+                        Style="{StaticResource vsm_orientation_iconAndTextLocation}"
                         VerticalOptions="CenterAndExpand">
 
                         <Image Source="{OnIdiom Phone={OnPlatform Default={StaticResource icon_location_solid_phone}}, Tablet={OnPlatform Default={StaticResource icon_location_solid_tablet}}}" />
@@ -129,12 +99,12 @@
 
 
                     <yummy:PancakeView
-                        Grid.Row="0"
-                        Grid.Column="2"
+                        x:Name="iconPicker"
                         xct:TouchEffect.AnimationDuration="300"
                         xct:TouchEffect.NativeAnimation="True"
                         xct:TouchEffect.PressedBackgroundColor="#171D59"
-                        CornerRadius="8,8,8,8">
+                        CornerRadius="8,8,8,8"
+                        Style="{StaticResource vsm_orientation_iconPicker}">
 
                         <Image
                             HorizontalOptions="Center"
@@ -145,8 +115,7 @@
 
                     <!--#region Updating-->
                     <yummy:PancakeView
-                        Grid.Row="1"
-                        Grid.Column="1"
+                        x:Name="updating"
                         Margin="0,-2,0,0"
                         BackgroundColor="Transparent"
                         Border="{yummy:BorderMarkup Color={StaticResource col_ten},
@@ -155,6 +124,7 @@
                         HeightRequest="{OnIdiom Phone={OnPlatform Default=29},
                                                 Tablet={OnPlatform Default=40}}"
                         HorizontalOptions="CenterAndExpand"
+                        Style="{StaticResource vsm_orientation_updating}"
                         WidthRequest="{OnIdiom Phone={OnPlatform Default=87},
                                                Tablet={OnPlatform Default=108}}">
                         <StackLayout
@@ -190,15 +160,20 @@
 
                     <!--#region Basic description of the climate-->
                     <StackLayout
-                        Grid.Row="4"
-                        Grid.Column="1">
-
+                        x:Name="lookTemperature"
+                        Style="{StaticResource vsm_orientation_lookTemperature}"
+                        VerticalOptions="CenterAndExpand">
                         <Label
                             HorizontalTextAlignment="Center"
                             Style="{OnIdiom Phone={OnPlatform Android={StaticResource TxtUnknown1_1},
                                                               iOS={StaticResource TxtUnknown1_3}},
                                             Tablet={OnPlatform Default={StaticResource TxtUnknown1_5}}}"
                             Text="{Binding MyHourly.Temp, StringFormat='{0}°', Converter={StaticResource DoubleToIntConverter}}" />
+                    </StackLayout>
+
+                    <StackLayout
+                        x:Name="lookWeatherAndDt"
+                        Style="{StaticResource vsm_orientation_lookWeatherAndDt}">
 
                         <Label
                             HorizontalTextAlignment="Center"
@@ -218,18 +193,18 @@
 
                     <!--#region Dividing line-->
                     <BoxView
-                        Grid.Row="6"
-                        Grid.ColumnSpan="3"
-                        BackgroundColor="{StaticResource co_elev}" />
+                        x:Name="dividingLine"
+                        BackgroundColor="{StaticResource co_elev}"
+                        Style="{StaticResource vsm_orientation_dividingLine}" />
                     <!--#endregion-->
 
                     <!--#region Complex description of the climate-->
                     <Grid
-                        Grid.Row="8"
-                        Grid.ColumnSpan="3"
+                        x:Name="gridComplexDescriptionClimate"
                         Padding="4,0,4,12"
                         ColumnDefinitions="*, Auto, *"
-                        ColumnSpacing="10">
+                        ColumnSpacing="10"
+                        Style="{StaticResource vsm_orientation_gridComplexDescriptionClimate}">
 
                         <StackLayout Grid.Column="0">
 
@@ -298,10 +273,9 @@
 
             <!--#region Today and 7 days titles-->
             <StackLayout
-                Grid.Row="1"
-                Grid.RowSpan="2"
-                Margin="0,0,-16,0"
-                Orientation="Horizontal">
+                x:Name="stackTodayAnd7Days"
+                Orientation="Horizontal"
+                Style="{StaticResource vsm_orientation_stackTodayAnd7Days}">
 
                 <Label
                     Style="{OnIdiom Phone={OnPlatform Default={StaticResource TxtHeadline6_2}},
@@ -317,8 +291,7 @@
                     xct:TouchEffect.PressedBackgroundColor="#C8E6DB"
                     HorizontalOptions="EndAndExpand"
                     Orientation="Horizontal"
-                    Spacing="6"
-                    TranslationY="2">
+                    Spacing="6">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding BindingContext.DailyForecast7DaysCommand, Source={x:Reference parentPage}}" />
                     </StackLayout.GestureRecognizers>
@@ -336,26 +309,30 @@
             </StackLayout>
             <!--#endregion-->
 
-            <!--#region [Item Collections] of weather within 24 hours a day-->
+            <!--#region [Item Collections] forecast 24 hours a day-->
             <ScrollView
-                Grid.Row="4"
-                Margin="-16,0"
+                x:Name="scrollForecast24Hours"
                 Padding="16,0"
-                Orientation="Horizontal">
+                Orientation="Horizontal"
+                Style="{StaticResource vsm_orientation_scrollForecast24Hours}">
 
-                <StackLayout
+                <FlexLayout
+                    Padding="{OnIdiom Phone={OnPlatform Default='-8,-2,-8,0'},
+                                      Tablet={OnPlatform Default='-12,-4,-12,0'}}"
+                    AlignItems="Center"
                     BindableLayout.ItemsSource="{Binding Hourlies}"
-                    Orientation="Horizontal"
-                    Spacing="{OnIdiom Phone={OnPlatform Default=16},
-                                      Tablet={OnPlatform Default=24}}">
+                    Direction="Column"
+                    JustifyContent="Center"
+                    Wrap="Wrap">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate x:DataType="models:Hourly">
                             <yummy:PancakeView
+                                Margin="{OnIdiom Phone={OnPlatform Default='8,2,8,0'},
+                                                 Tablet={OnPlatform Default='12,4,12,0'}}"
                                 Padding="0,10"
                                 BackgroundGradientEndPoint="0,1"
                                 BackgroundGradientStartPoint="0,0"
-                                Style="{StaticResource vsm_surfaceHourly}"
-                                VerticalOptions="Center">
+                                Style="{StaticResource vsm_surfaceHourly}">
                                 <yummy:PancakeView.GestureRecognizers>
                                     <TapGestureRecognizer
                                         Command="{Binding BindingContext.SelectedHourlyCommand, Source={x:Reference parentPage}}"
@@ -391,7 +368,7 @@
                             </yummy:PancakeView>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
-                </StackLayout>
+                </FlexLayout>
             </ScrollView>
             <!--#endregion-->
         </Grid>

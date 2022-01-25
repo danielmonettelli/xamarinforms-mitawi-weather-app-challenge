@@ -386,6 +386,7 @@
         </Setter>
     </Style>
 
+
     <Style
         x:Key="vsm_labelTemperature"
         TargetType="Label">
@@ -448,6 +449,7 @@
         </Setter>
     </Style>
 
+
     <Style
         x:Key="vsm_labelHour"
         TargetType="Label">
@@ -509,6 +511,7 @@
             </VisualStateGroupList>
         </Setter>
     </Style>
+
 
     <Style
         x:Key="vsm_surfaceHourly"

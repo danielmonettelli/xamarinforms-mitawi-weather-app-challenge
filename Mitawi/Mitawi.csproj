@@ -16,7 +16,7 @@
     <None Remove="Resources\FontFamily\Roboto-Medium.ttf" />
     <None Remove="Resources\FontFamily\Roboto-Regular.ttf" />
     <None Remove="Resources\Fonticons\customfonticons.ttf" />
-    <None Remove="Resources\Images\12.png" />
+    <None Remove="Resources\Images\img_demo.png" />
     <None Remove="Resources\SVGs\svg_chance_of_rain_mix.svg" />
     <None Remove="Resources\SVGs\svg_circle_arrow_backward_outline.svg" />
     <None Remove="Resources\SVGs\svg_humidity_solid.svg" />
@@ -28,7 +28,7 @@
     <EmbeddedResource Include="Resources\FontFamily\Roboto-Medium.ttf" />
     <EmbeddedResource Include="Resources\FontFamily\Roboto-Regular.ttf" />
     <EmbeddedResource Include="Resources\Fonticons\customfonticons.ttf" />
-    <EmbeddedResource Include="Resources\Images\12.png" />
+    <EmbeddedResource Include="Resources\Images\img_demo.png" />
     <EmbeddedResource Include="Resources\SVGs\svg_chance_of_rain_mix.svg" />
     <EmbeddedResource Include="Resources\SVGs\svg_circle_arrow_backward_outline.svg" />
     <EmbeddedResource Include="Resources\SVGs\svg_humidity_solid.svg" />
@@ -45,6 +45,12 @@
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Orientations\HomePageOrientation.xaml.cs">
+      <DependentUpon>HomePageOrientation.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

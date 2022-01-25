@@ -12,13 +12,34 @@ namespace Mitawi.Views
         {
             InitializeComponent();
 
+            SizeChanged += HomePage_Orientation;
+
             BindingContext = ViewModelLocator.HomeViewModel;
+        }
+
+        private void HomePage_Orientation(object sender, System.EventArgs e)
+        {
+            string visualStateOrientation = Height > Width ? "Portrait" : "Landscape";
+
+            VisualStateManager.GoToState(gridParent, visualStateOrientation);
+            VisualStateManager.GoToState(topLayerLower1, visualStateOrientation);
+            VisualStateManager.GoToState(topLayerHigher2, visualStateOrientation);
+            VisualStateManager.GoToState(gridAdminTopLayerHigher2, visualStateOrientation);
+            VisualStateManager.GoToState(iconAndTextLocation, visualStateOrientation);
+            VisualStateManager.GoToState(iconPicker, visualStateOrientation);
+            VisualStateManager.GoToState(updating, visualStateOrientation);
+            VisualStateManager.GoToState(lookTemperature, visualStateOrientation);
+            VisualStateManager.GoToState(lookWeatherAndDt, visualStateOrientation);
+            VisualStateManager.GoToState(dividingLine, visualStateOrientation);
+            VisualStateManager.GoToState(gridComplexDescriptionClimate, visualStateOrientation);
+            VisualStateManager.GoToState(stackTodayAnd7Days, visualStateOrientation);
+            VisualStateManager.GoToState(scrollForecast24Hours, visualStateOrientation);
         }
 
         private void SelectedWeather_Tapped(object sender, System.EventArgs e)
         {
             VisualElement surfaceWeather = sender as VisualElement;
-            StackLayout parent = surfaceWeather.Parent as StackLayout;
+            FlexLayout parent = surfaceWeather.Parent as FlexLayout;
 
             foreach (View child in parent.Children)
             {
@@ -35,10 +56,11 @@ namespace Mitawi.Views
             CachedImage imageSmallWeather = child.FindByName<CachedImage>("imageSmallWeather");
             Label labelHour = child.FindByName<Label>("labelHour");
 
-            string visualState = isSelected ? "Selected" : "Normal";
-            VisualStateManager.GoToState(labelTemperature, visualState);
-            VisualStateManager.GoToState(imageSmallWeather, visualState);
-            VisualStateManager.GoToState(labelHour, visualState);
+            string visualStateControl = isSelected ? "Selected" : "Normal";
+            VisualStateManager.GoToState(labelTemperature, visualStateControl);
+            VisualStateManager.GoToState(imageSmallWeather, visualStateControl);
+            VisualStateManager.GoToState(labelHour, visualStateControl);
         }
+
     }
 }

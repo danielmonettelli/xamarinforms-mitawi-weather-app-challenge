@@ -9,7 +9,7 @@ namespace Mitawi
     public partial class App : Application
     {
         public static NavigationService NavigationService { get; } = new NavigationService();
-        public static IWeatherDataService WeatherDataServie { get; set; } = new WeatherDataService(new WeatherDataRepository());
+        public static IWeatherDataService WeatherDataServie { get; } = new WeatherDataService(new WeatherDataRepository());
 
         public App()
         {
