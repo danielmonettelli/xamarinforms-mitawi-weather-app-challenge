@@ -9,7 +9,7 @@
 
 [![Stars](https://img.shields.io/github/stars/danielmonettelli/Mitawi)](https://github.com/danielmonettelli/Mitawi/stargazers) [![Forks](https://img.shields.io/github/forks/danielmonettelli/Mitawi)](https://github.com/danielmonettelli/Mitawi/network/members) [![Pull Requests](https://img.shields.io/github/issues-pr/danielmonettelli/Mitawi)](https://github.com/danielmonettelli/Mitawi/pulls) [![Issues](https://img.shields.io/github/issues/danielmonettelli/Mitawi)](https://github.com/danielmonettelli/Mitawi/issues) [![Contributors](https://img.shields.io/github/contributors/danielmonettelli/Mitawi?color=2b9348)](https://github.com/danielmonettelli/Mitawi/graphs/contributors)
 
-<a href="https://www.buymeacoffee.com/danielmonetelli" title="Donate to this project using Buy Me A Coffee"><img src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg" alt="Buy Me A Coffee donate button" /></a>
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A49B3UQ)
 
 [![GitHub Social Preview](https://raw.githubusercontent.com/danielmonettelli/Mitawi/main/Assets/Mitawi_GitHub_Social_Preview.png)](#GitHub-Social-Preview)
 
