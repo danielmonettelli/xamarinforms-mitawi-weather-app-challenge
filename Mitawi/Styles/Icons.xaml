@@ -48,10 +48,17 @@
         Color="{StaticResource col_sext}" />
 
     <FontImageSource
-        x:Key="icon_calendar_outline"
+        x:Key="icon_calendar_outline_phone"
         FontFamily="CustomFontIcons"
         Glyph="{x:Static FontIcons:CustomFontIcons.icon_calendar_outline}"
         Size="19.5"
+        Color="{StaticResource col_ter}" />
+
+    <FontImageSource
+        x:Key="icon_calendar_outline_tablet"
+        FontFamily="CustomFontIcons"
+        Glyph="{x:Static FontIcons:CustomFontIcons.icon_calendar_outline}"
+        Size="27"
         Color="{StaticResource col_ter}" />
     <!--#endregion-->
 

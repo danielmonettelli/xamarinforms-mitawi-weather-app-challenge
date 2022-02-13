@@ -18,34 +18,35 @@
 
     <ContentPage.Resources>
         <ResourceDictionary Source="Styles.xaml" />
+        <ResourceDictionary Source="Orientations/HomeDetailPageOrientation.xaml" />
     </ContentPage.Resources>
 
     <ContentPage.Content>
         <!--#region Grid Parent-->
         <Grid
-            Padding="16,0,16,8"
-            RowDefinitions="312,9,32,*">
+            x:Name="gridParent"
+            Style="{StaticResource vsm_orientation_gridParent}">
 
             <!--#region Top layer lower 1-->
             <yummy:PancakeView
-                Grid.Row="0"
-                Grid.RowSpan="2"
+                x:Name="topLayerLower1"
                 BackgroundColor="{StaticResource col_thirt}"
                 CornerRadius="0,0,43,43"
                 Shadow="{yummy:ShadowMarkup Color={StaticResource col_thirt},
                                             Opacity=0.93,
-                                            BlurRadius=45}" />
+                                            BlurRadius=45}"
+                Style="{StaticResource vsm_orientation_topLayerLower1}" />
             <!--#endregion-->
 
             <!--#region Top layer higher 2-->
             <yummy:PancakeView
-                Grid.Row="0"
-                Margin="-16,0"
+                x:Name="topLayerHigher2"
                 BackgroundGradientEndPoint="0,1"
                 BackgroundGradientStartPoint="0,0"
                 Border="{yummy:BorderMarkup Color={StaticResource col_twel},
                                             Thickness=3}"
-                CornerRadius="0,0,45,45">
+                CornerRadius="0,0,45,45"
+                Style="{StaticResource vsm_orientation_topLayerHigher2}">
                 <yummy:PancakeView.BackgroundGradientStops>
                     <yummy:GradientStopCollection>
                         <yummy:GradientStop
@@ -60,7 +61,7 @@
                 <Grid
                     Padding="16,0"
                     ColumnDefinitions="48, *, 48"
-                    RowDefinitions="48, 24, 130, 14, 2, 14, Auto">
+                    RowDefinitions="48, 24, *, 14, 2, 14, Auto">
 
                     <!--#region Top icons-->
                     <yummy:PancakeView
@@ -90,10 +91,11 @@
                         Spacing="6"
                         VerticalOptions="CenterAndExpand">
 
-                        <Image Source="{StaticResource icon_calendar_outline}" />
+                        <Image Source="{OnIdiom Phone={OnPlatform Default={StaticResource icon_calendar_outline_phone}}, Tablet={OnPlatform Default={StaticResource icon_calendar_outline_tablet}}}" />
 
                         <Label
-                            Style="{StaticResource TxtHeadline5_1}"
+                            Style="{OnIdiom Phone={OnPlatform Default={StaticResource TxtHeadline5_1}},
+                                            Tablet={OnPlatform Default={StaticResource TxtHeadline4_3}}}"
                             Text="7 days" />
                     </StackLayout>
 
@@ -120,25 +122,31 @@
                         ColumnSpacing="20">
 
                         <ffimageloading:CachedImage
+                            x:Name="imageTomorrowWeather"
                             Grid.Column="0"
-                            HorizontalOptions="EndAndExpand"
-                            Source="{Binding MyDaily.Weather[0].Icon, Converter={StaticResource CustomImageUrlScalingConverter}, ConverterParameter=10}" />
+                            Source="{Binding MyDaily.Weather[0].Icon, Converter={StaticResource CustomImageUrlScalingConverter}, ConverterParameter=10}"
+                            Style="{StaticResource vsm_orientation_imageTomorrowWeather}" />
 
 
-                        <StackLayout Grid.Column="1">
+                        <StackLayout
+                            Grid.Column="1"
+                            VerticalOptions="Center">
 
                             <Label
-                                Style="{StaticResource TxtHeadline6_1}"
-                                Text="Tommorrow" />
+                                Style="{OnIdiom Phone={OnPlatform Default={StaticResource TxtHeadline6_1}},
+                                                Tablet={OnPlatform Default={StaticResource TxtHeadline3_1}}}"
+                                Text="Tomorrow" />
 
-                            <Label Style="{StaticResource TxtUnknown1_2}">
+                            <Label>
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <Span
-                                            Style="{StaticResource Span_TxtUnknown1_2}"
+                                            Style="{OnIdiom Phone={OnPlatform Default={StaticResource Span_TxtUnknown1_2}},
+                                                            Tablet={OnPlatform Default={StaticResource Span_TxtUnknown1_6}}}"
                                             Text="{Binding MyDaily.Temp.Max, Converter={StaticResource DoubleToIntConverter}}" />
                                         <Span
-                                            Style="{StaticResource Span_TxtHeadline4_1}"
+                                            Style="{OnIdiom Phone={OnPlatform Default={StaticResource Span_TxtHeadline4_1}},
+                                                            Tablet={OnPlatform Default={StaticResource Span_TxtHeadline2_1}}}"
                                             Text="{Binding MyDaily.Temp.Min, Converter={StaticResource DoubleToIntConverter}, StringFormat='/{0}°'}" />
                                     </FormattedString>
                                 </Label.FormattedText>
@@ -146,7 +154,8 @@
 
                             <Label
                                 LineBreakMode="CharacterWrap"
-                                Style="{StaticResource TxtSubtitle1_3}">
+                                Style="{OnIdiom Phone={OnPlatform Default={StaticResource TxtSubtitle1_3}},
+                                                Tablet={OnPlatform Default={StaticResource TxtHeadline5_4}}}">
                                 <Label.Text>
                                     <MultiBinding StringFormat="{}{0} - {1}">
                                         <Binding Path="MyDaily.Weather[0].Main" />
@@ -180,12 +189,14 @@
                             <Label
                                 Margin="0,8,0,0"
                                 HorizontalTextAlignment="Center"
-                                Style="{StaticResource TxtSubtitle2_2}"
+                                Style="{OnIdiom Phone={OnPlatform Default={StaticResource TxtSubtitle2_2}},
+                                                Tablet={OnPlatform Default={StaticResource TxtHeadline6_2}}}"
                                 Text="{Binding MyDaily.Wind_speed, StringFormat='{0} km/h'}" />
 
                             <Label
                                 HorizontalTextAlignment="Center"
-                                Style="{StaticResource TxtBody2_1}"
+                                Style="{OnIdiom Phone={OnPlatform Default={StaticResource TxtBody2_1}},
+                                                Tablet={OnPlatform Default={StaticResource TxtSubtitle1_4}}}"
                                 Text="Wind" />
                         </StackLayout>
 
@@ -199,12 +210,14 @@
                             <Label
                                 Margin="0,8,0,0"
                                 HorizontalTextAlignment="Center"
-                                Style="{StaticResource TxtSubtitle2_2}"
+                                Style="{OnIdiom Phone={OnPlatform Default={StaticResource TxtSubtitle2_2}},
+                                                Tablet={OnPlatform Default={StaticResource TxtHeadline6_2}}}"
                                 Text="{Binding MyDaily.Humidity, StringFormat='{0}%'}" />
 
                             <Label
                                 HorizontalTextAlignment="Center"
-                                Style="{StaticResource TxtBody2_1}"
+                                Style="{OnIdiom Phone={OnPlatform Default={StaticResource TxtBody2_1}},
+                                                Tablet={OnPlatform Default={StaticResource TxtSubtitle1_4}}}"
                                 Text="Humidity" />
                         </StackLayout>
 
@@ -218,12 +231,14 @@
                             <Label
                                 Margin="0,8,0,0"
                                 HorizontalTextAlignment="Center"
-                                Style="{StaticResource TxtSubtitle2_2}"
+                                Style="{OnIdiom Phone={OnPlatform Default={StaticResource TxtSubtitle2_2}},
+                                                Tablet={OnPlatform Default={StaticResource TxtHeadline6_2}}}"
                                 Text="{Binding MyDaily.Wind_gust, StringFormat='{0}%', Converter={StaticResource DoubleToIntConverter}}" />
 
                             <Label
                                 HorizontalTextAlignment="Center"
-                                Style="{StaticResource TxtBody2_1}"
+                                Style="{OnIdiom Phone={OnPlatform Default={StaticResource TxtBody2_1}},
+                                                Tablet={OnPlatform Default={StaticResource TxtSubtitle1_4}}}"
                                 Text="Chance of rain" />
                         </StackLayout>
                     </Grid>
@@ -234,26 +249,47 @@
 
             <!--#region [Item Collections] Weekly weather-->
             <ScrollView
-                Grid.Row="3"
-                Margin="-16,-32,-16,-8"
-                Padding="16,32,16,8">
+                x:Name="scrollWeeklyWeather"
+                Style="{StaticResource vsm_orientation_scrollWeeklyWeather}">
 
                 <StackLayout
                     BindableLayout.ItemsSource="{Binding Days}"
-                    Spacing="16">
+                    Spacing="{OnIdiom Phone={OnPlatform Default=16},
+                                      Tablet={OnPlatform Default=24}}">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate x:DataType="models:Daily">
                             <Grid
                                 xct:TouchEffect.AnimationDuration="300"
                                 xct:TouchEffect.NativeAnimation="True"
-                                xct:TouchEffect.PressedBackgroundColor="#030A15"
-                                ColumnDefinitions="48, 50*, 44, 70, 50*, 48, 48"
-                                RowDefinitions="48">
+                                xct:TouchEffect.PressedBackgroundColor="#030A15">
+
+                                <Grid.RowDefinitions>
+                                    <!--  0  -->
+                                    <RowDefinition Height="{OnIdiom Phone={OnPlatform Default=48}, Tablet={OnPlatform Default=50}}" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <!--  0  -->
+                                    <ColumnDefinition Width="{OnIdiom Phone={OnPlatform Default=48}, Tablet={OnPlatform Default=50}}" />
+                                    <!--  1  -->
+                                    <ColumnDefinition Width="50*" />
+                                    <!--  2  -->
+                                    <ColumnDefinition Width="{OnIdiom Phone={OnPlatform Default=44}, Tablet={OnPlatform Default=52}}" />
+                                    <!--  3  -->
+                                    <ColumnDefinition Width="{OnIdiom Phone={OnPlatform Default=70}, Tablet={OnPlatform Default=75}}" />
+                                    <!--  4  -->
+                                    <ColumnDefinition Width="50*" />
+                                    <!--  5  -->
+                                    <ColumnDefinition Width="{OnIdiom Phone={OnPlatform Default=48}, Tablet={OnPlatform Default=50}}" />
+                                    <!--  6  -->
+                                    <ColumnDefinition Width="{OnIdiom Phone={OnPlatform Default=48}, Tablet={OnPlatform Default=50}}" />
+                                </Grid.ColumnDefinitions>
 
                                 <Label
                                     Grid.Column="0"
                                     MaxLines="2"
-                                    Style="{StaticResource TxtHeadline6_3}"
+                                    Style="{OnIdiom Phone={OnPlatform Default={StaticResource TxtHeadline6_3}},
+                                                    Tablet={OnPlatform Default={StaticResource TxtHeadline5_5}}}"
                                     Text="{Binding Dt, Converter={StaticResource DatetimeAndFirstCharactersMultiConverter}, ConverterParameter={StaticResource DatetimeAndFirstCharactersMultiConverterParams}}"
                                     VerticalTextAlignment="Center" />
 
@@ -263,21 +299,24 @@
 
                                 <Label
                                     Grid.Column="3"
-                                    Style="{StaticResource TxtHeadline6_3}"
+                                    Style="{OnIdiom Phone={OnPlatform Default={StaticResource TxtHeadline6_3}},
+                                                    Tablet={OnPlatform Default={StaticResource TxtHeadline5_5}}}"
                                     Text="{Binding Weather[0].Main}"
                                     VerticalTextAlignment="Center" />
 
                                 <Label
                                     Grid.Column="5"
                                     HorizontalTextAlignment="End"
-                                    Style="{StaticResource TxtHeadline6_4}"
+                                    Style="{OnIdiom Phone={OnPlatform Default={StaticResource TxtHeadline6_4}},
+                                                    Tablet={OnPlatform Default={StaticResource TxtHeadline5_1}}}"
                                     Text="{Binding Temp.Max, Converter={StaticResource NegativeAndPositiveIntMultiConverter}, StringFormat='{0}°'}"
                                     VerticalTextAlignment="Center" />
 
                                 <Label
                                     Grid.Column="6"
                                     HorizontalTextAlignment="End"
-                                    Style="{StaticResource TxtHeadline6_3}"
+                                    Style="{OnIdiom Phone={OnPlatform Default={StaticResource TxtHeadline6_3}},
+                                                    Tablet={OnPlatform Default={StaticResource TxtHeadline5_5}}}"
                                     Text="{Binding Temp.Min, Converter={StaticResource NegativeAndPositiveIntMultiConverter}, StringFormat='{0}°'}"
                                     VerticalTextAlignment="Center" />
                             </Grid>

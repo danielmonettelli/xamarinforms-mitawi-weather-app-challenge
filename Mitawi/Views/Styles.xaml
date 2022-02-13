@@ -41,12 +41,32 @@
 
 
     <!--#region Headline2-->
+    <Style
+        x:Key="TxtHeadline2_1"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto#700" />
+        <Setter Property="FontSize" Value="60" />
+        <Setter Property="TextColor" Value="{StaticResource col_ten}" />
+    </Style>
 
+    <Style
+        x:Key="Span_TxtHeadline2_1"
+        TargetType="Span">
+        <Setter Property="FontFamily" Value="Roboto#700" />
+        <Setter Property="FontSize" Value="60" />
+        <Setter Property="TextColor" Value="{StaticResource col_ten}" />
+    </Style>
     <!--#endregion-->
 
 
     <!--#region Headline3-->
-
+    <Style
+        x:Key="TxtHeadline3_1"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto#400" />
+        <Setter Property="FontSize" Value="48" />
+        <Setter Property="TextColor" Value="{StaticResource col_ter}" />
+    </Style>
     <!--#endregion-->
 
 
@@ -108,6 +128,22 @@
         <Setter Property="FontFamily" Value="Roboto#400" />
         <Setter Property="FontSize" Value="24" />
         <Setter Property="TextColor" Value="{StaticResource col_ter}" />
+    </Style>
+
+    <Style
+        x:Key="TxtHeadline5_4"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto#400" />
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="TextColor" Value="{StaticResource col_sept}" />
+    </Style>
+
+    <Style
+        x:Key="TxtHeadline5_5"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto#500" />
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="TextColor" Value="{StaticResource col_sext}" />
     </Style>
     <!--#endregion-->
 
@@ -325,7 +361,24 @@
         <Setter Property="FontSize" Value="175" />
         <Setter Property="TextColor" Value="{StaticResource col_ter}" />
     </Style>
+
+    <Style
+        x:Key="TxtUnknown1_6"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto#700" />
+        <Setter Property="FontSize" Value="100" />
+        <Setter Property="TextColor" Value="{StaticResource col_ter}" />
+    </Style>
+
+    <Style
+        x:Key="Span_TxtUnknown1_6"
+        TargetType="Span">
+        <Setter Property="FontFamily" Value="Roboto#700" />
+        <Setter Property="FontSize" Value="100" />
+        <Setter Property="TextColor" Value="{StaticResource col_ter}" />
+    </Style>
     <!--#endregion-->
+
 
     <!--#region Visual States Manager-->
     <Style
