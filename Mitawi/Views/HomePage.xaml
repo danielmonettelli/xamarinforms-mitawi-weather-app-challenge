@@ -4,7 +4,6 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:models="clr-namespace:Mitawi.Models"
     xmlns:viewmodels="clr-namespace:Mitawi.ViewModels"
@@ -72,10 +71,10 @@
                         xct:TouchEffect.PressedBackgroundColor="#171D59"
                         CornerRadius="8,8,8,8">
 
-                        <ffimageloadingsvg:SvgCachedImage
+                        <Image
                             HeightRequest="40"
                             HorizontalOptions="Center"
-                            Source="resource://Mitawi.Resources.SVGs.svg_main_list_outline.svg"
+                            Source="svg_main_list_outline.png"
                             VerticalOptions="CenterAndExpand"
                             WidthRequest="40" />
                     </yummy:PancakeView>
@@ -227,9 +226,10 @@
 
                         <StackLayout Grid.Column="1">
 
-                            <ffimageloadingsvg:SvgCachedImage
+                            <Image
                                 HeightRequest="22"
-                                Source="resource://Mitawi.Resources.SVGs.svg_humidity_solid.svg" />
+                                Source="svg_humidity_solid.png"
+                                WidthRequest="22" />
 
                             <Label
                                 Margin="0,8,0,0"
@@ -248,9 +248,10 @@
 
                         <StackLayout Grid.Column="2">
 
-                            <ffimageloadingsvg:SvgCachedImage
+                            <Image
                                 HeightRequest="22"
-                                Source="resource://Mitawi.Resources.SVGs.svg_chance_of_rain_mix.svg" />
+                                Source="svg_chance_of_rain_mix.svg"
+                                WidthRequest="22" />
 
                             <Label
                                 Margin="0,8,0,0"

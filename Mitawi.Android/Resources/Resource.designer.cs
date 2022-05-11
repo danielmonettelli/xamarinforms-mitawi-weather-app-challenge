@@ -14,7 +14,7 @@ namespace Mitawi.Droid
 {
 	
 	
-	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "12.1.0.11")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "12.3.0.26")]
 	public partial class Resource
 	{
 		
@@ -24861,13 +24861,25 @@ namespace Mitawi.Droid
 			public const int preference_list_divider_material = 2131165324;
 			
 			// aapt resource value: 0x7F07008D
-			public const int test_custom_background = 2131165325;
+			public const int svg_chance_of_rain_mix = 2131165325;
 			
 			// aapt resource value: 0x7F07008E
-			public const int tooltip_frame_dark = 2131165326;
+			public const int svg_circle_arrow_backward_outline = 2131165326;
 			
 			// aapt resource value: 0x7F07008F
-			public const int tooltip_frame_light = 2131165327;
+			public const int svg_humidity_solid = 2131165327;
+			
+			// aapt resource value: 0x7F070090
+			public const int svg_main_list_outline = 2131165328;
+			
+			// aapt resource value: 0x7F070091
+			public const int test_custom_background = 2131165329;
+			
+			// aapt resource value: 0x7F070092
+			public const int tooltip_frame_dark = 2131165330;
+			
+			// aapt resource value: 0x7F070093
+			public const int tooltip_frame_light = 2131165331;
 			
 			static Drawable()
 			{
