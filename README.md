@@ -20,7 +20,7 @@
   <tr>
     <td align="center" valign="top">
       <a href="https://www.linkedin.com/in/vitaliy-dorozhko-985767118/">
-        <img width="150" src="https://media-exp1.licdn.com/dms/image/C5603AQE6hn0TFRy4kQ/profile-displayphoto-shrink_800_800/0/1643142532483?e=1649289600&v=beta&t=zXxZddtSlOHsHP-IPTtsUEhaKv2U6iROcOeX4HG3XVA"/><br>
+        <img width="150" src="https://raw.githubusercontent.com/danielmonettelli/Mitawi/main/Assets/Vitaliy_Dorozhko.jpg"/><br>
         <sub>
           <b>Vitaliy Dorozhko</b>
           <br>
