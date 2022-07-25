@@ -1,8 +1,8 @@
-﻿using MvvmHelpers;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Mitawi.ViewModels
 {
-    public class MyBaseViewModel : BaseViewModel
+    public partial class MyBaseViewModel : ObservableObject
     {
         public virtual void Initialize(object parameter)
         {
