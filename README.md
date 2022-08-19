@@ -44,7 +44,7 @@
 
 ## Steps to generate your API key in OpenWeather
 
-Click **Sign in**.
+Go to https://openweathermap.org and click on **Sign in**.
 
 [![OpenWeather Part1](https://raw.githubusercontent.com/danimonettelli/Mitawi/main/Assets/OpenWeather_Part1.jpg)](#OpenWeather-Part1)
 
