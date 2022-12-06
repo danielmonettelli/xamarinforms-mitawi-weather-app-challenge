@@ -1,6 +1,6 @@
 # Xamarin.Forms UI/UX Challenges - Mitawi
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/2ac4bba488f648e6a6405df18375ab8c)](https://www.codacy.com/gh/danimonettelli/Mitawi/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=danimonettelli/Mitawi&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/95395302deee42dfaa8c6fb00350ebe5)](https://www.codacy.com/gh/danielmonettelli/Mitawi/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=danielmonettelli/Mitawi&amp;utm_campaign=Badge_Grade)
 [![Twitter](https://img.shields.io/twitter/follow/DaniMonettelli.svg?style=social)](https://twitter.com/DaniMonettelli)
 
 [![Xamarin Mobile CI](https://github.com/danimonettelli/Mitawi/actions/workflows/mobile.yml/badge.svg)](https://github.com/danimonettelli/Mitawi/actions/workflows/mobile.yml)
@@ -29,8 +29,8 @@
       </a>
     </td>
      <td align="center" valign="top">
-      <a href="https://www.linkedin.com/in/danimonettelli/">
-        <img width="150" src="https://github.com/danimonettelli.png"/><br>
+      <a href="https://www.linkedin.com/in/danielmonettelli/">
+        <img width="150" src="https://github.com/danielmonettelli.png"/><br>
         <sub>
           <b>Daniel Monettelli</b>
           <br>
